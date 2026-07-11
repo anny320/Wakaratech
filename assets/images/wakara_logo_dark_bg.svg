@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <rect width="280" height="80" fill="#0A2540" rx="6"/>
+  <polygon points="10,10 23,10 31,42 38,22 45,42 53,10 66,10 55,68 38,48 21,68" fill="#1A8CFF"/>
+  <circle cx="29" cy="6" r="5" fill="#FF6B1A"/>
+  <circle cx="47" cy="6" r="5" fill="#FFD600"/>
+  <text x="82" y="44" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#FFFFFF" letter-spacing="-0.5">Wakara</text>
+  <text x="83" y="62" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#1A8CFF" letter-spacing="3">TECHNOLOGIES</text>
+  <rect x="83" y="67" width="112" height="2.5" rx="1" fill="#FF6B1A"/>
+</svg>

@@ -188,27 +188,14 @@ p { margin-bottom: 1rem; }
 
 .nav-logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1;
 }
 
-.nav-logo .logo-main {
-  font-family: var(--font-head);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: .04em;
-}
-
-.nav-logo .logo-main span { color: var(--orange); }
-
-.nav-logo .logo-sub {
-  font-family: var(--font-head);
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--sky);
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -1099,25 +1086,11 @@ p { margin-bottom: 1rem; }
   margin-bottom: 2rem;
 }
 
-.footer-brand .footer-logo-main {
-  font-family: var(--font-head);
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: .04em;
-  margin-bottom: .25rem;
-}
-
-.footer-brand .footer-logo-main span { color: var(--orange); }
-
-.footer-brand .footer-logo-sub {
-  font-family: var(--font-head);
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--sky);
-  margin-bottom: 1rem;
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin-bottom: 1.25rem;
 }
 
 .footer-tagline {
