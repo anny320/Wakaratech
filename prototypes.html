@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wakara Technologies Prototypes — TinkerWith_ Lab. Experiments, tools, and side projects built in the open." />
+  <title>Prototypes — Wakara Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <style>
+    /* TinkerWith_ Lab branding accent */
+    .lab-banner {
+      background: linear-gradient(90deg, rgba(74,144,217,.08) 0%, rgba(252,209,22,.06) 100%);
+      border: 1px solid rgba(74,144,217,.15);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .lab-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+    .lab-title {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -.01em;
+    }
+    .lab-title span { color: var(--orange); }
+    .lab-desc {
+      font-size: .9rem;
+      color: var(--gray-600);
+      margin: .25rem 0 0;
+    }
+
+    /* Proto card enhancements */
+    .proto-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      border: 1px solid var(--gray-200);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .proto-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(15,30,61,.12);
+      border-color: rgba(74,144,217,.3);
+    }
+
+    .proto-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .75rem;
+    }
+
+    .proto-card h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+      flex: 1;
+      margin: 0;
+    }
+
+    .proto-card p {
+      font-size: .875rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+      flex: 1;
+      margin: 0;
+    }
+
+    .proto-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .proto-tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .2rem .65rem;
+      border-radius: 999px;
+      font-family: var(--font-head);
+      letter-spacing: .02em;
+    }
+
+    .proto-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: .25rem;
+      padding-top: .75rem;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .proto-link {
+      font-family: var(--font-head);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--sky);
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      transition: var(--transition);
+    }
+
+    .proto-link:hover {
+      color: var(--orange);
+      gap: .5rem;
+    }
+
+    /* Proto grid */
+    .proto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .proto-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .proto-grid { grid-template-columns: 1fr; }
+      .lab-banner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Wakara Technologies home">
+        <span class="logo-main">WAKARA <span>/</span> TECHNOLOGIES</span>
+        <span class="logo-sub">Learning Engineering as a Service</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="prototypes.html" class="active">Prototypes</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Book a Consult</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="prototypes.html" class="active">Prototypes</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Consult</a>
+    </div>
+  </div>
+
+  <!-- ===================== PAGE HERO ===================== -->
+  <header class="page-hero" aria-label="Prototypes page hero">
+    <div class="container page-hero-content">
+      <span class="section-label">TinkerWith_ Lab</span>
+      <h1>Prototypes</h1>
+      <p class="hero-sub">Experiments, tools, and side projects built in the open. Everything here is a working prototype &mdash; some polished, some raw.</p>
+    </div>
+  </header>
+
+  <!-- ===================== PROTOTYPES GRID ===================== -->
+  <section class="section section-cream" aria-label="Prototype projects">
+    <div class="container">
+
+      <div class="lab-banner">
+        <div class="lab-icon" aria-hidden="true">🔬</div>
+        <div>
+          <div class="lab-title">TinkerWith_ <span>Lab</span></div>
+          <div class="lab-desc">A collection of learning-tech experiments from Wakara's R&amp;D practice. We build in the open — sharing what works, what doesn't, and what's next.</div>
+        </div>
+      </div>
+
+      <div class="proto-grid">
+
+        <!-- WakaraBot -->
+        <article class="proto-card" aria-labelledby="proto-wakarabot">
+          <div class="proto-card-header">
+            <h3 id="proto-wakarabot">WakaraBot</h3>
+            <span class="badge badge-progress">In Progress</span>
+          </div>
+          <p>An AI-powered learning assistant that adapts content difficulty based on learner responses. Built with the Claude API to provide personalised scaffolding across curriculum topics.</p>
+          <div class="proto-tags">
+            <span class="proto-tag">AI</span>
+            <span class="proto-tag">Python</span>
+            <span class="proto-tag">Claude API</span>
+          </div>
+          <div class="proto-footer">
+            <a href="#" class="proto-link">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- SMSLearn -->
+        <article class="proto-card" aria-labelledby="proto-smslearn">
+          <div class="proto-card-header">
+            <h3 id="proto-smslearn">SMSLearn</h3>
+            <span class="badge badge-concept">Concept</span>
+          </div>
+          <p>Offline-first learning delivery via SMS for low-bandwidth learners. Inspired by Eneza Education's core model — bringing curriculum content to feature-phone users with no internet required.</p>
+          <div class="proto-tags">
+            <span class="proto-tag">SMS</span>
+            <span class="proto-tag">Node.js</span>
+            <span class="proto-tag">Twilio</span>
+          </div>
+          <div class="proto-footer">
+            <a href="#" class="proto-link">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- AccessAudit -->
+        <article class="proto-card" aria-labelledby="proto-accessaudit">
+          <div class="proto-card-header">
+            <h3 id="proto-accessaudit">AccessAudit</h3>
+            <span class="badge badge-live">Live</span>
+          </div>
+          <p>WCAG 2.1 AA accessibility checker for e-learning content. Flags issues and suggests remediation — helping learning product teams build more inclusive experiences from day one.</p>
+          <div class="proto-tags">
+            <span class="proto-tag">Accessibility</span>
+            <span class="proto-tag">JavaScript</span>
+            <span class="proto-tag">WCAG</span>
+          </div>
+          <div class="proto-footer">
+            <a href="#" class="proto-link">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- CurriculumMapper -->
+        <article class="proto-card" aria-labelledby="proto-currmap">
+          <div class="proto-card-header">
+            <h3 id="proto-currmap">CurriculumMapper</h3>
+            <span class="badge badge-progress">In Progress</span>
+          </div>
+          <p>Visual tool for mapping learning outcomes to content and assessments across a curriculum. Makes curriculum alignment visible and auditable — built for instructional designers and curriculum teams.</p>
+          <div class="proto-tags">
+            <span class="proto-tag">React</span>
+            <span class="proto-tag">D3.js</span>
+            <span class="proto-tag">EdTech</span>
+          </div>
+          <div class="proto-footer">
+            <a href="#" class="proto-link">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- TinkerWith_ Hub -->
+        <article class="proto-card" aria-labelledby="proto-tinkerwith">
+          <div class="proto-card-header">
+            <h3 id="proto-tinkerwith">TinkerWith_ Hub</h3>
+            <span class="badge badge-concept">Concept</span>
+          </div>
+          <p>A curated resource hub for kids' STEM projects and hands-on learning activities. Part of the TinkerWith_ sub-brand initiative — making engineering playful and accessible for young learners across Africa.</p>
+          <div class="proto-tags">
+            <span class="proto-tag">Next.js</span>
+            <span class="proto-tag">Tailwind</span>
+            <span class="proto-tag">Education</span>
+          </div>
+          <div class="proto-footer">
+            <a href="#" class="proto-link">View Project &rarr;</a>
+          </div>
+        </article>
+
+        <!-- LEaaS Dashboard -->
+        <article class="proto-card" aria-labelledby="proto-laasdash">
+          <div class="proto-card-header">
+            <h3 id="proto-laasdash">LEaaS Dashboard</h3>
+            <span class="badge badge-progress">In Progress</span>
+          </div>
+          <p>Client-facing dashboard for tracking learning product health metrics in real time. Surfaces engagement rates, completion data, accessibility scores, and growth indicators in one place.</p>
+          <div class="proto-tags">
+            <span class="proto-tag">React</span>
+            <span class="proto-tag">Charts</span>
+            <span class="proto-tag">Analytics</span>
+          </div>
+          <div class="proto-footer">
+            <a href="#" class="proto-link">View Project &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Status legend -->
+      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:2.5rem;padding:1.25rem 1.5rem;background:var(--white);border-radius:var(--radius-md);border:1px solid var(--gray-200);">
+        <span style="font-size:.8rem;font-weight:600;color:var(--gray-400);letter-spacing:.06em;text-transform:uppercase;">Status Key</span>
+        <span class="badge badge-live">Live</span>
+        <span style="font-size:.8rem;color:var(--gray-600);">Deployed and working</span>
+        <span class="badge badge-progress">In Progress</span>
+        <span style="font-size:.8rem;color:var(--gray-600);">Actively being built</span>
+        <span class="badge badge-concept">Concept</span>
+        <span style="font-size:.8rem;color:var(--gray-600);">Idea stage / not yet started</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container text-center">
+      <h2>Have an idea? Let's build it together.</h2>
+      <p>Whether it's an AI tutor, an SMS learning system, or something you can't quite name yet — we love building from scratch.</p>
+      <a href="contact.html" class="btn btn-white">Book a Consult &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-main">WAKARA <span>/</span> TECHNOLOGIES</div>
+          <div class="footer-logo-sub">Learning Engineering as a Service</div>
+          <p class="footer-tagline">Learning Engineering as a Service. We partner with EdTech leaders, public institutions, and innovation teams to design, build, and scale learning products that work.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="prototypes.html">Prototypes</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Learning Experience Design</a></li>
+            <li><a href="services.html">Digital Transformation</a></li>
+            <li><a href="services.html">Product Engineering</a></li>
+            <li><a href="services.html">Accessibility &amp; Inclusion</a></li>
+            <li><a href="services.html">Growth &amp; Scale Ops</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Wakara Technologies. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>
