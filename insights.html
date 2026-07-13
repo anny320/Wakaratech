@@ -18,7 +18,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Wakara Technologies home">
-        <img src="assets/images/wakara_logo_primary.svg" alt="Wakara Technologies" class="nav-logo-img" />
+        <img src="assets/images/wakara_logo_navbar.svg" alt="Wakara Technologies" class="nav-logo-img" />
       </a>
       <ul class="nav-links" role="list">
         <li><a href="index.html">Home</a></li>
@@ -64,56 +64,8 @@
   <section class="section section-cream" aria-label="Articles and insights">
     <div class="container">
 
-      <div class="insights-grid">
-
-        <!-- Article 1 -->
-        <article class="insight-card card-hover" aria-labelledby="art-play">
-          <div class="insight-img">
-            <div class="insight-img-inner" aria-hidden="true">🎮</div>
-            <div style="position:absolute;top:1rem;left:1rem;">
-              <span style="background:var(--yellow);color:var(--navy);font-size:.7rem;font-weight:700;padding:.25rem .65rem;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-head);">Future of Play</span>
-            </div>
-          </div>
-          <div class="insight-body">
-            <div class="insight-cat">Future of Play</div>
-            <h3 id="art-play">The Future of Play in African EdTech</h3>
-            <p>How game-based learning is reshaping educational outcomes across sub-Saharan Africa — and why play is the most underutilised tool in the learning engineer's toolkit.</p>
-            <a href="#" class="insight-link">Read Article &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Article 2 -->
-        <article class="insight-card card-hover" aria-labelledby="art-leaas">
-          <div class="insight-img">
-            <div class="insight-img-inner" aria-hidden="true">⚙️</div>
-            <div style="position:absolute;top:1rem;left:1rem;">
-              <span style="background:var(--orange);color:var(--white);font-size:.7rem;font-weight:700;padding:.25rem .65rem;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-head);">Innovation Strategy</span>
-            </div>
-          </div>
-          <div class="insight-body">
-            <div class="insight-cat">Innovation Strategy</div>
-            <h3 id="art-leaas">Why Learning Engineering Beats Content Creation</h3>
-            <p>The shift from "building courses" to "engineering learning systems" — and why organisations that make this transition consistently outperform those that don't.</p>
-            <a href="#" class="insight-link">Read Article &rarr;</a>
-          </div>
-        </article>
-
-        <!-- Article 3 -->
-        <article class="insight-card card-hover" aria-labelledby="art-access">
-          <div class="insight-img">
-            <div class="insight-img-inner" aria-hidden="true">🌐</div>
-            <div style="position:absolute;top:1rem;left:1rem;">
-              <span style="background:var(--sky);color:var(--white);font-size:.7rem;font-weight:700;padding:.25rem .65rem;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-head);">EdTech</span>
-            </div>
-          </div>
-          <div class="insight-body">
-            <div class="insight-cat">EdTech</div>
-            <h3 id="art-access">Designing for the Last Mile: Accessibility in Low-Bandwidth EdTech</h3>
-            <p>Practical strategies for building inclusive learning products when connectivity is the constraint — not an afterthought.</p>
-            <a href="#" class="insight-link">Read Article &rarr;</a>
-          </div>
-        </article>
-
+      <div class="insights-grid" id="insights-grid">
+        <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--gray-400);">Loading articles…</div>
       </div>
 
       <!-- Coming soon placeholder -->
@@ -221,5 +173,47 @@
   </footer>
 
   <script src="assets/js/theme.js"></script>
+  <script>
+    const catColors = {
+      'Strategy':'var(--orange)','Accessibility':'var(--sky)','AI in Learning':'var(--navy)',
+      'Future of Play':'var(--yellow)','Innovation Strategy':'var(--orange)','EdTech':'var(--sky)'
+    };
+    const catText = {
+      'Strategy':'var(--white)','Accessibility':'var(--white)','AI in Learning':'var(--white)',
+      'Future of Play':'var(--navy)','Innovation Strategy':'var(--white)','EdTech':'var(--white)'
+    };
+    fetch('content.json?v=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const grid = document.getElementById('insights-grid');
+        if (!data.insights || !data.insights.length) {
+          grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;"><p style="color:var(--gray-400);">No articles yet — check back soon.</p></div>';
+          return;
+        }
+        grid.innerHTML = data.insights.map(a => {
+          const bg = catColors[a.category] || 'var(--sky)';
+          const fg = catText[a.category] || 'var(--white)';
+          const link = a.linkedin_url
+            ? `<a href="${a.linkedin_url}" target="_blank" rel="noopener" class="insight-link">Read on LinkedIn &rarr;</a>`
+            : `<span style="font-size:.8rem;color:var(--gray-400);font-style:italic;">Coming soon</span>`;
+          const fmt = a.date ? new Date(a.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}) : '';
+          return `
+          <article class="insight-card card-hover">
+            <div class="insight-img">
+              <div class="insight-img-inner" aria-hidden="true">${a.emoji || '📝'}</div>
+              <div style="position:absolute;top:1rem;left:1rem;">
+                <span style="background:${bg};color:${fg};font-size:.7rem;font-weight:700;padding:.25rem .65rem;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--font-head);">${a.category}</span>
+              </div>
+            </div>
+            <div class="insight-body">
+              <div class="insight-cat">${a.category}${fmt ? ' &middot; ' + fmt : ''}</div>
+              <h3>${a.title}</h3>
+              <p>${a.excerpt}</p>
+              ${link}
+            </div>
+          </article>`;
+        }).join('');
+      });
+  </script>
 </body>
 </html>

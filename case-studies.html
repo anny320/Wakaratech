@@ -55,7 +55,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Wakara Technologies home">
-        <img src="assets/images/wakara_logo_primary.svg" alt="Wakara Technologies" class="nav-logo-img" />
+        <img src="assets/images/wakara_logo_navbar.svg" alt="Wakara Technologies" class="nav-logo-img" />
       </a>
       <ul class="nav-links" role="list">
         <li><a href="index.html">Home</a></li>
@@ -100,7 +100,7 @@
   <!-- ===================== CASE STUDIES ===================== -->
   <section class="section section-cream" aria-label="Case study list">
     <div class="container">
-
+      <div id="case-studies-list"></div>
     </div>
   </section>
 
@@ -155,5 +155,26 @@
   </footer>
 
   <script src="assets/js/theme.js"></script>
+  <script>
+    fetch('content.json?v=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const el = document.getElementById('case-studies-list');
+        if (!data.case_studies || !data.case_studies.length) {
+          el.innerHTML = '<div style="text-align:center;padding:4rem 0;"><p style="color:var(--gray-400);font-size:1.05rem;">Case studies coming soon — check back shortly.</p></div>';
+          return;
+        }
+        el.innerHTML = data.case_studies.map(c => `
+        <div class="case-full-card">
+          <div class="case-full-visual" style="background:linear-gradient(135deg,#1a2d52,#0f1e3d);"></div>
+          <div class="case-full-body">
+            <span class="case-tag">${c.tag}</span>
+            <h2>${c.title}</h2>
+            <p>${c.description}</p>
+            ${c.stat ? '<div class="case-big-stat">' + c.stat + '</div><div class="case-stat-label">' + (c.stat_label||'') + '</div>' : ''}
+          </div>
+        </div>`).join('');
+      });
+  </script>
 </body>
 </html>

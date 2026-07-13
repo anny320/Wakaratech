@@ -1,0 +1,130 @@
+{
+  "case_studies": [],
+  "insights": [
+    {
+      "id": "leaas-model",
+      "category": "Strategy",
+      "emoji": "\ud83e\udde9",
+      "title": "Why Learning Engineering is the missing layer in EdTech",
+      "excerpt": "Most EdTech products are built by engineers or educators \u2014 rarely both. Learning Engineering bridges that gap, treating curriculum as a product and learners as users.",
+      "date": "2026-06-01",
+      "linkedin_url": ""
+    },
+    {
+      "id": "africa-mobile-first",
+      "category": "Accessibility",
+      "emoji": "\ud83d\udcf1",
+      "title": "Building for the next billion learners: a mobile-first, low-bandwidth playbook",
+      "excerpt": "Designing for learners in rural Kenya, Ghana, or Rwanda means rethinking every assumption about connectivity, device capability, and data cost. Here's how we approach it.",
+      "date": "2026-05-15",
+      "linkedin_url": ""
+    },
+    {
+      "id": "ai-curriculum",
+      "category": "AI in Learning",
+      "emoji": "\ud83e\udd16",
+      "title": "AI tutors are coming \u2014 but are they learning engineers?",
+      "excerpt": "The rush to add AI to learning platforms often skips the curriculum design step entirely. We break down what AI can and can't replace in the learning engineering stack.",
+      "date": "2026-04-28",
+      "linkedin_url": ""
+    }
+  ],
+  "prototypes": [
+    {
+      "id": "tinkerwithme",
+      "name": "TinkerWith Me",
+      "status": "live",
+      "description": "A curriculum selector for Robotics & AI \u2014 helps young learners and educators navigate hands-on project pathways based on age, interest, and skill level.",
+      "tags": [
+        "Robotics",
+        "AI",
+        "Curriculum"
+      ],
+      "url": "https://tinkerwith.me"
+    },
+    {
+      "id": "secure360",
+      "name": "Secure360",
+      "status": "live",
+      "description": "A cyber security assessment tool that helps individuals and teams understand their digital security posture through structured, plain-language evaluation.",
+      "tags": [
+        "Cyber Security",
+        "Assessment",
+        "EdTech"
+      ],
+      "url": "https://anny320.github.io/secure360/index.html"
+    },
+    {
+      "id": "anchor",
+      "name": "Anchor",
+      "status": "live",
+      "description": "A self-regulation gym \u2014 a wellbeing tool that guides users through evidence-based practices for emotional regulation, focus, and resilience. Learning that starts from the inside out.",
+      "tags": [
+        "Wellbeing",
+        "SEL",
+        "Self-Regulation"
+      ],
+      "url": "https://anny320.github.io/Anchor/index.html"
+    },
+    {
+      "id": "prayer-companion",
+      "name": "Digital Prayer Companion",
+      "status": "live",
+      "description": "A reflective digital companion for personal prayer and spiritual journaling \u2014 offering guided prompts, scripture, and space for quiet daily practice.",
+      "tags": [
+        "Wellness",
+        "Journaling",
+        "Reflection"
+      ],
+      "url": "https://anny320.github.io/digitalprayercompanion/journey.html"
+    },
+    {
+      "id": "track-my-chumz",
+      "name": "Track My Chumz",
+      "status": "live",
+      "description": "A personal budgeting tool designed for the Kenyan context \u2014 helping users track income, expenses, and savings goals with a simple, mobile-friendly interface.",
+      "tags": [
+        "Finance",
+        "Budgeting",
+        "Mobile-First"
+      ],
+      "url": "https://anny320.github.io/track-my-chumz/"
+    },
+    {
+      "id": "career-templates",
+      "name": "Career Templates AI",
+      "status": "live",
+      "description": "AI-assisted career document builder \u2014 generates tailored CVs, cover letters, and LinkedIn summaries. Designed to help job seekers in African markets put their best foot forward.",
+      "tags": [
+        "AI",
+        "Career",
+        "Templates"
+      ],
+      "url": "https://anny320.github.io/career-templates-ai/"
+    },
+    {
+      "id": "reset-guide",
+      "name": "Reset Guide",
+      "status": "live",
+      "description": "A new-year reflection and goal-setting simulator for individuals and groups \u2014 walks users through a structured reset process using a gears metaphor to align values, habits, and intentions.",
+      "tags": [
+        "Reflection",
+        "Goal-Setting",
+        "Groups"
+      ],
+      "url": "https://anny320.github.io/new-year-new-me-gears-simulator/"
+    },
+    {
+      "id": "dpia-safe-lab",
+      "name": "DPIA Safe Lab",
+      "status": "live",
+      "description": "A Data Protection Impact Assessment sandbox \u2014 guides organisations through DPIA exercises to identify privacy risks in learning products and digital systems.",
+      "tags": [
+        "Data Privacy",
+        "DPIA",
+        "Compliance"
+      ],
+      "url": "https://anny320.github.io/Safe-DPI-Lab/"
+    }
+  ]
+}

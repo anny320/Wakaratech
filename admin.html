@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Wakara Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0f1e3d;--sky:#4a90d9;--orange:#f26522;--yellow:#fcd116;
+      --cream:#fafaf7;--white:#fff;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+      --gray-400:#9ca3af;--gray-600:#4b5563;--gray-800:#1f2937;--green:#10b981;
+      --red:#ef4444;
+    }
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--gray-800);min-height:100vh}
+    h1,h2,h3,h4{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;color:var(--navy)}
+    a{color:var(--sky);text-decoration:none}
+    p{margin-bottom:.75rem}
+
+    /* ---- Login ---- */
+    #login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
+    .login-box{background:var(--white);border-radius:16px;padding:2.5rem;border:1px solid var(--gray-200);box-shadow:0 8px 32px rgba(0,0,0,.1);max-width:440px;width:100%}
+    .login-logo{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem}
+    .login-logo-mark{width:44px;height:44px;background:linear-gradient(135deg,#4a90d9,#f26522);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;font-size:1.2rem;color:#fff}
+    .login-logo-text .main{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;font-size:1.05rem;color:var(--navy)}
+    .login-logo-text .sub{font-size:.7rem;font-weight:600;color:var(--gray-400);letter-spacing:.1em;text-transform:uppercase}
+    .login-box h2{margin-bottom:.4rem}
+    .login-box p{color:var(--gray-600);font-size:.9rem;margin-bottom:1.75rem}
+    .field{margin-bottom:1.25rem}
+    .field label{display:block;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-600);margin-bottom:.4rem}
+    .field input,.field textarea,.field select{width:100%;padding:.7rem 1rem;border:1px solid var(--gray-200);border-radius:8px;font-family:'Inter',system-ui,sans-serif;font-size:.95rem;color:var(--gray-800);background:var(--cream);outline:none;transition:border-color .2s,box-shadow .2s}
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--sky);background:var(--white);box-shadow:0 0 0 3px rgba(74,144,217,.12)}
+    .field textarea{min-height:90px;resize:vertical}
+    .field small{display:block;margin-top:.35rem;font-size:.78rem;color:var(--gray-400)}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;border-radius:8px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;border:2px solid transparent;transition:all .2s;white-space:nowrap}
+    .btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+    .btn-primary:hover{background:#d9581a}
+    .btn-ghost{background:transparent;color:var(--gray-600);border-color:var(--gray-200)}
+    .btn-ghost:hover{background:var(--gray-100);color:var(--navy)}
+    .btn-danger{background:#fee2e2;color:var(--red);border-color:#fca5a5}
+    .btn-danger:hover{background:#fca5a5}
+    .btn-sm{padding:.4rem .85rem;font-size:.8rem}
+    .btn-full{width:100%;justify-content:center}
+    .err{color:var(--red);font-size:.85rem;margin-top:.5rem}
+
+    /* ---- App shell ---- */
+    #app{display:none;min-height:100vh;flex-direction:column}
+    .topbar{background:var(--navy);padding:0 1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .topbar-logo{display:flex;align-items:center;gap:.6rem}
+    .topbar-mark{width:32px;height:32px;background:linear-gradient(135deg,#4a90d9,#f26522);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:800;font-size:.9rem;color:#fff}
+    .topbar-name{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:.95rem;color:#fff}
+    .topbar-badge{font-size:.7rem;font-weight:600;background:rgba(242,101,34,.2);color:#f9a070;border:1px solid rgba(242,101,34,.3);padding:.2rem .55rem;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+    .topbar-actions{display:flex;align-items:center;gap:.75rem}
+    .topbar-user{font-size:.82rem;color:rgba(255,255,255,.5)}
+    .btn-signout{font-size:.8rem;padding:.35rem .8rem;background:rgba(255,255,255,.07);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.12);border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',system-ui,sans-serif;transition:all .2s}
+    .btn-signout:hover{background:rgba(255,255,255,.12);color:#fff}
+
+    .layout{display:flex;flex:1}
+    .sidebar{width:220px;background:var(--white);border-right:1px solid var(--gray-200);padding:1.5rem 0;flex-shrink:0}
+    .sidebar-section{padding:0 1rem .5rem;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-400)}
+    .sidebar a{display:flex;align-items:center;gap:.6rem;padding:.6rem 1rem;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:.875rem;font-weight:500;color:var(--gray-600);border-left:3px solid transparent;transition:all .2s;text-decoration:none;cursor:pointer}
+    .sidebar a:hover{color:var(--navy);background:var(--gray-100)}
+    .sidebar a.active{color:var(--navy);font-weight:600;border-left-color:var(--orange);background:rgba(242,101,34,.04)}
+    .content{flex:1;padding:2rem;max-width:900px}
+    .content h2{margin-bottom:.4rem}
+    .content-desc{color:var(--gray-600);font-size:.9rem;margin-bottom:2rem}
+
+    /* ---- Toast ---- */
+    #toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--navy);color:#fff;padding:.75rem 1.25rem;border-radius:10px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:.875rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;z-index:9999;pointer-events:none}
+    #toast.show{opacity:1;transform:translateY(0)}
+    #toast.toast-ok{border-left:4px solid var(--green)}
+    #toast.toast-err{border-left:4px solid var(--red)}
+
+    /* ---- Cards / items ---- */
+    .item-card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+    .item-card-body{flex:1;min-width:0}
+    .item-card-body h4{font-size:.95rem;color:var(--navy);margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .item-card-body p{font-size:.82rem;color:var(--gray-600);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .item-card-body .meta{font-size:.75rem;color:var(--gray-400);margin-top:.25rem}
+    .item-actions{display:flex;gap:.5rem;flex-shrink:0}
+    .badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;border-radius:999px}
+    .badge-live{background:rgba(16,185,129,.12);color:#059669;border:1px solid rgba(16,185,129,.25)}
+    .badge-progress{background:rgba(252,209,22,.15);color:#92600a;border:1px solid rgba(252,209,22,.35)}
+    .badge-concept{background:rgba(156,163,175,.12);color:#4b5563;border:1px solid rgba(156,163,175,.25)}
+
+    /* ---- Add/Edit form panel ---- */
+    .form-panel{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:1.75rem;margin-bottom:2rem}
+    .form-panel h3{margin-bottom:1.25rem;font-size:1rem}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .form-actions{display:flex;gap:.75rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--gray-200)}
+    .saving-indicator{font-size:.82rem;color:var(--gray-400);display:flex;align-items:center;gap:.4rem}
+
+    @media(max-width:768px){
+      .layout{flex-direction:column}
+      .sidebar{width:100%;border-right:none;border-bottom:1px solid var(--gray-200);padding:.75rem 0;display:flex;overflow-x:auto}
+      .sidebar a{white-space:nowrap;border-left:none;border-bottom:3px solid transparent}
+      .sidebar a.active{border-left:none;border-bottom-color:var(--orange)}
+      .sidebar-section{display:none}
+      .form-row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-logo-mark">W</div>
+      <div class="login-logo-text">
+        <div class="main">Wakara Technologies</div>
+        <div class="sub">Admin Panel</div>
+      </div>
+    </div>
+    <h2>Sign in</h2>
+    <p>Enter your GitHub Personal Access Token to manage site content. The token needs <strong>repo</strong> scope on the <code>anny320/Wakaratech</code> repository.</p>
+    <div class="field">
+      <label>GitHub Personal Access Token</label>
+      <input type="password" id="token-input" placeholder="ghp_…" autocomplete="off" />
+      <small>Your token is stored only in your browser session and never sent anywhere except GitHub's API.</small>
+    </div>
+    <div id="login-err" class="err" style="display:none"></div>
+    <button class="btn btn-primary btn-full" id="login-btn" onclick="doLogin()">Sign In &rarr;</button>
+    <p style="margin-top:1.25rem;font-size:.8rem;color:var(--gray-400);">
+      <a href="https://github.com/settings/tokens/new?scopes=repo&description=Wakara+Admin" target="_blank" rel="noopener">Create a token on GitHub &rarr;</a>
+    </p>
+  </div>
+</div>
+
+<!-- ===================== APP ===================== -->
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-logo">
+      <div class="topbar-mark">W</div>
+      <span class="topbar-name">Wakara Admin</span>
+      <span class="topbar-badge">Content Manager</span>
+    </div>
+    <div class="topbar-actions">
+      <span class="topbar-user" id="topbar-user"></span>
+      <button class="btn-signout" onclick="signOut()">Sign out</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="sidebar-section">Content</div>
+      <a onclick="showTab('prototypes')" id="tab-prototypes" class="active">🔬 Prototypes</a>
+      <a onclick="showTab('insights')" id="tab-insights">✍️ Insights</a>
+      <a onclick="showTab('case-studies')" id="tab-case-studies">📊 Case Studies</a>
+      <div class="sidebar-section" style="margin-top:1rem;">Site</div>
+      <a href="index.html" target="_blank">🌐 View Live Site</a>
+    </nav>
+
+    <main class="content" id="main-content">
+      <!-- rendered by JS -->
+    </main>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const REPO = 'anny320/Wakaratech';
+const CONTENT_FILE = 'content.json';
+let TOKEN = '';
+let contentData = {};
+let contentSHA = '';
+let activeTab = 'prototypes';
+let editingIndex = -1;
+
+// ---- Auth ----
+async function doLogin() {
+  const t = document.getElementById('token-input').value.trim();
+  if (!t) return showLoginErr('Please enter your token.');
+  document.getElementById('login-btn').textContent = 'Verifying…';
+  try {
+    const r = await ghFetch(`https://api.github.com/repos/${REPO}`, t);
+    if (!r.ok) throw new Error('Token invalid or no access to repository.');
+    TOKEN = t;
+    sessionStorage.setItem('wk_token', TOKEN);
+    const user = await (await ghFetch('https://api.github.com/user', TOKEN)).json();
+    document.getElementById('topbar-user').textContent = user.login || '';
+    await loadContent();
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    showTab('prototypes');
+  } catch(e) {
+    showLoginErr(e.message);
+    document.getElementById('login-btn').textContent = 'Sign In →';
+  }
+}
+
+function showLoginErr(msg) {
+  const el = document.getElementById('login-err');
+  el.textContent = msg;
+  el.style.display = 'block';
+  document.getElementById('login-btn').textContent = 'Sign In →';
+}
+
+function signOut() {
+  TOKEN = '';
+  sessionStorage.removeItem('wk_token');
+  location.reload();
+}
+
+// ---- GitHub API ----
+function ghFetch(url, token, opts={}) {
+  return fetch(url, {
+    ...opts,
+    headers: {
+      'Authorization': 'token ' + (token || TOKEN),
+      'Accept': 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json',
+      ...(opts.headers || {})
+    }
+  });
+}
+
+async function loadContent() {
+  const r = await ghFetch(`https://api.github.com/repos/${REPO}/contents/${CONTENT_FILE}`);
+  const json = await r.json();
+  contentSHA = json.sha;
+  contentData = JSON.parse(atob(json.content.replace(/\n/g,'')));
+}
+
+async function saveContent() {
+  const body = JSON.stringify({
+    message: 'Update site content via admin panel',
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(contentData, null, 2)))),
+    sha: contentSHA
+  });
+  const r = await ghFetch(`https://api.github.com/repos/${REPO}/contents/${CONTENT_FILE}`, TOKEN, {
+    method: 'PUT',
+    body
+  });
+  if (!r.ok) {
+    const err = await r.json();
+    throw new Error(err.message || 'Save failed');
+  }
+  const json = await r.json();
+  contentSHA = json.content.sha;
+}
+
+// ---- Toast ----
+function toast(msg, ok=true) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'show ' + (ok ? 'toast-ok' : 'toast-err');
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.className = '', 3500);
+}
+
+// ---- Tabs ----
+function showTab(tab) {
+  activeTab = tab;
+  editingIndex = -1;
+  ['prototypes','insights','case-studies'].forEach(t => {
+    document.getElementById('tab-' + t).classList.toggle('active', t === tab);
+  });
+  if (tab === 'prototypes') renderPrototypes();
+  if (tab === 'insights') renderInsights();
+  if (tab === 'case-studies') renderCaseStudies();
+}
+
+// ==============================
+// PROTOTYPES
+// ==============================
+function renderPrototypes() {
+  const items = contentData.prototypes || [];
+  const mc = document.getElementById('main-content');
+  mc.innerHTML = `
+    <h2>Prototypes</h2>
+    <p class="content-desc">Manage the live prototype cards shown on the Prototypes page.</p>
+    <div id="proto-form-container"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+      <span style="font-size:.875rem;color:var(--gray-600);">${items.length} prototype${items.length!==1?'s':''}</span>
+      <button class="btn btn-primary btn-sm" onclick="openProtoForm(-1)">+ Add Prototype</button>
+    </div>
+    <div id="proto-list">
+      ${items.map((p,i) => `
+      <div class="item-card">
+        <div class="item-card-body">
+          <h4>${p.name} <span class="badge badge-${p.status||'concept'}" style="margin-left:.4rem;">${badgeLabel(p.status)}</span></h4>
+          <p>${p.description}</p>
+          <div class="meta">${(p.tags||[]).join(' · ')}${p.url ? ' · <a href="'+p.url+'" target="_blank">'+p.url+'</a>' : ''}</div>
+        </div>
+        <div class="item-actions">
+          <button class="btn btn-ghost btn-sm" onclick="openProtoForm(${i})">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteItem('prototypes',${i})">Delete</button>
+        </div>
+      </div>`).join('')}
+    </div>`;
+}
+
+function openProtoForm(i) {
+  editingIndex = i;
+  const p = i >= 0 ? contentData.prototypes[i] : { name:'', status:'live', description:'', tags:[], url:'' };
+  document.getElementById('proto-form-container').innerHTML = `
+    <div class="form-panel">
+      <h3>${i >= 0 ? 'Edit' : 'Add'} Prototype</h3>
+      <div class="form-row">
+        <div class="field"><label>Name</label><input id="pf-name" value="${esc(p.name)}" placeholder="Project name" /></div>
+        <div class="field"><label>Status</label>
+          <select id="pf-status">
+            <option value="live" ${p.status==='live'?'selected':''}>Live</option>
+            <option value="progress" ${p.status==='progress'?'selected':''}>In Progress</option>
+            <option value="concept" ${p.status==='concept'?'selected':''}>Concept</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Description</label><textarea id="pf-desc" placeholder="Short description…">${esc(p.description)}</textarea></div>
+      <div class="form-row">
+        <div class="field"><label>Live URL</label><input id="pf-url" value="${esc(p.url||'')}" placeholder="https://…" /></div>
+        <div class="field"><label>Tags</label><input id="pf-tags" value="${esc((p.tags||[]).join(', '))}" placeholder="AI, EdTech, Mobile" /><small>Comma-separated</small></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" onclick="saveProto()">Save</button>
+        <button class="btn btn-ghost" onclick="cancelForm('proto-form-container')">Cancel</button>
+      </div>
+    </div>`;
+  document.getElementById('proto-form-container').scrollIntoView({behavior:'smooth'});
+}
+
+async function saveProto() {
+  const p = {
+    id: editingIndex >= 0 ? contentData.prototypes[editingIndex].id : slug(document.getElementById('pf-name').value),
+    name: document.getElementById('pf-name').value.trim(),
+    status: document.getElementById('pf-status').value,
+    description: document.getElementById('pf-desc').value.trim(),
+    url: document.getElementById('pf-url').value.trim(),
+    tags: document.getElementById('pf-tags').value.split(',').map(t=>t.trim()).filter(Boolean)
+  };
+  if (!p.name) return toast('Name is required', false);
+  if (editingIndex >= 0) contentData.prototypes[editingIndex] = p;
+  else contentData.prototypes.push(p);
+  await trySave();
+  renderPrototypes();
+}
+
+// ==============================
+// INSIGHTS
+// ==============================
+function renderInsights() {
+  const items = contentData.insights || [];
+  const mc = document.getElementById('main-content');
+  mc.innerHTML = `
+    <h2>Insights &amp; Articles</h2>
+    <p class="content-desc">Manage articles shown on the Insights page. Paste your LinkedIn article URL to link readers directly to your post.</p>
+    <div id="insight-form-container"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+      <span style="font-size:.875rem;color:var(--gray-600);">${items.length} article${items.length!==1?'s':''}</span>
+      <button class="btn btn-primary btn-sm" onclick="openInsightForm(-1)">+ Add Article</button>
+    </div>
+    <div id="insight-list">
+      ${items.map((a,i) => `
+      <div class="item-card">
+        <div class="item-card-body">
+          <h4>${a.emoji||'📝'} ${a.title}</h4>
+          <p>${a.excerpt}</p>
+          <div class="meta">${a.category} · ${a.date||''}${a.linkedin_url ? ' · <a href="'+a.linkedin_url+'" target="_blank">LinkedIn</a>' : ' · no link yet'}</div>
+        </div>
+        <div class="item-actions">
+          <button class="btn btn-ghost btn-sm" onclick="openInsightForm(${i})">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteItem('insights',${i})">Delete</button>
+        </div>
+      </div>`).join('')}
+    </div>`;
+}
+
+function openInsightForm(i) {
+  editingIndex = i;
+  const a = i >= 0 ? contentData.insights[i] : { id:'', category:'', emoji:'📝', title:'', excerpt:'', date:'', linkedin_url:'' };
+  document.getElementById('insight-form-container').innerHTML = `
+    <div class="form-panel">
+      <h3>${i >= 0 ? 'Edit' : 'Add'} Article</h3>
+      <div class="form-row">
+        <div class="field"><label>Title</label><input id="af-title" value="${esc(a.title)}" placeholder="Article title…" /></div>
+        <div class="field"><label>Category</label><input id="af-cat" value="${esc(a.category)}" placeholder="e.g. Strategy, AI in Learning" /></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Emoji icon</label><input id="af-emoji" value="${esc(a.emoji||'📝')}" placeholder="📝" style="font-size:1.4rem;" /></div>
+        <div class="field"><label>Date</label><input type="date" id="af-date" value="${esc(a.date||'')}" /></div>
+      </div>
+      <div class="field"><label>Excerpt</label><textarea id="af-excerpt" placeholder="Short description shown on the card…">${esc(a.excerpt)}</textarea></div>
+      <div class="field"><label>LinkedIn Article URL</label><input id="af-url" value="${esc(a.linkedin_url||'')}" placeholder="https://www.linkedin.com/pulse/…" /><small>Leave blank to show "Coming soon" on the card.</small></div>
+      <div class="form-actions">
+        <button class="btn btn-primary" onclick="saveInsight()">Save</button>
+        <button class="btn btn-ghost" onclick="cancelForm('insight-form-container')">Cancel</button>
+      </div>
+    </div>`;
+  document.getElementById('insight-form-container').scrollIntoView({behavior:'smooth'});
+}
+
+async function saveInsight() {
+  const a = {
+    id: editingIndex >= 0 ? contentData.insights[editingIndex].id : slug(document.getElementById('af-title').value),
+    category: document.getElementById('af-cat').value.trim(),
+    emoji: document.getElementById('af-emoji').value.trim() || '📝',
+    title: document.getElementById('af-title').value.trim(),
+    excerpt: document.getElementById('af-excerpt').value.trim(),
+    date: document.getElementById('af-date').value,
+    linkedin_url: document.getElementById('af-url').value.trim()
+  };
+  if (!a.title) return toast('Title is required', false);
+  if (editingIndex >= 0) contentData.insights[editingIndex] = a;
+  else contentData.insights.push(a);
+  await trySave();
+  renderInsights();
+}
+
+// ==============================
+// CASE STUDIES
+// ==============================
+function renderCaseStudies() {
+  const items = contentData.case_studies || [];
+  const mc = document.getElementById('main-content');
+  mc.innerHTML = `
+    <h2>Case Studies</h2>
+    <p class="content-desc">Add real client case studies. They'll appear on the Case Studies page and the homepage preview grid.</p>
+    <div id="cs-form-container"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+      <span style="font-size:.875rem;color:var(--gray-600);">${items.length} case stud${items.length!==1?'ies':'y'}</span>
+      <button class="btn btn-primary btn-sm" onclick="openCsForm(-1)">+ Add Case Study</button>
+    </div>
+    <div id="cs-list">
+      ${items.length ? items.map((c,i) => `
+      <div class="item-card">
+        <div class="item-card-body">
+          <h4>${c.title}</h4>
+          <p>${c.description}</p>
+          <div class="meta">${c.tag||''}${c.stat ? ' · <strong style="color:var(--orange)">'+c.stat+'</strong> '+c.stat_label : ''}</div>
+        </div>
+        <div class="item-actions">
+          <button class="btn btn-ghost btn-sm" onclick="openCsForm(${i})">Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteItem('case_studies',${i})">Delete</button>
+        </div>
+      </div>`).join('') : `<div style="text-align:center;padding:3rem;background:var(--white);border-radius:12px;border:1px dashed var(--gray-200);"><p style="color:var(--gray-400);">No case studies yet. Click <strong>+ Add Case Study</strong> to add your first one.</p></div>`}
+    </div>`;
+}
+
+function openCsForm(i) {
+  editingIndex = i;
+  const c = i >= 0 ? contentData.case_studies[i] : { tag:'', title:'', description:'', stat:'', stat_label:'' };
+  document.getElementById('cs-form-container').innerHTML = `
+    <div class="form-panel">
+      <h3>${i >= 0 ? 'Edit' : 'Add'} Case Study</h3>
+      <div class="form-row">
+        <div class="field"><label>Client / Project Name</label><input id="cf-title" value="${esc(c.title)}" placeholder="e.g. Eneza Education" /></div>
+        <div class="field"><label>Tag / Category</label><input id="cf-tag" value="${esc(c.tag||'')}" placeholder="e.g. EdTech · Scale" /></div>
+      </div>
+      <div class="field"><label>Description</label><textarea id="cf-desc" placeholder="What did you do, and what was the impact?">${esc(c.description)}</textarea></div>
+      <div class="form-row">
+        <div class="field"><label>Key Stat (optional)</label><input id="cf-stat" value="${esc(c.stat||'')}" placeholder="e.g. 1.3M" /></div>
+        <div class="field"><label>Stat Label</label><input id="cf-stat-label" value="${esc(c.stat_label||'')}" placeholder="e.g. Active Learners" /></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" onclick="saveCs()">Save</button>
+        <button class="btn btn-ghost" onclick="cancelForm('cs-form-container')">Cancel</button>
+      </div>
+    </div>`;
+  document.getElementById('cs-form-container').scrollIntoView({behavior:'smooth'});
+}
+
+async function saveCs() {
+  const c = {
+    id: editingIndex >= 0 ? (contentData.case_studies[editingIndex].id || slug(document.getElementById('cf-title').value)) : slug(document.getElementById('cf-title').value),
+    title: document.getElementById('cf-title').value.trim(),
+    tag: document.getElementById('cf-tag').value.trim(),
+    description: document.getElementById('cf-desc').value.trim(),
+    stat: document.getElementById('cf-stat').value.trim(),
+    stat_label: document.getElementById('cf-stat-label').value.trim()
+  };
+  if (!c.title) return toast('Title is required', false);
+  if (editingIndex >= 0) contentData.case_studies[editingIndex] = c;
+  else contentData.case_studies.push(c);
+  await trySave();
+  renderCaseStudies();
+}
+
+// ---- Shared ----
+async function deleteItem(section, i) {
+  if (!confirm('Delete this item?')) return;
+  contentData[section].splice(i, 1);
+  await trySave();
+  showTab(activeTab);
+}
+
+function cancelForm(containerId) {
+  document.getElementById(containerId).innerHTML = '';
+  editingIndex = -1;
+}
+
+async function trySave() {
+  try {
+    await saveContent();
+    toast('Saved and published ✓');
+  } catch(e) {
+    toast('Error saving: ' + e.message, false);
+    throw e;
+  }
+}
+
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function slug(s) { return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+function badgeLabel(s) { return {live:'Live',progress:'In Progress',concept:'Concept'}[s]||'Concept'; }
+
+// ---- Boot ----
+window.addEventListener('load', () => {
+  const saved = sessionStorage.getItem('wk_token');
+  if (saved) {
+    document.getElementById('token-input').value = saved;
+    TOKEN = saved;
+    doLogin();
+  }
+  document.getElementById('token-input').addEventListener('keydown', e => { if(e.key==='Enter') doLogin(); });
+});
+</script>
+</body>
+</html>
