@@ -1266,3 +1266,56 @@ p { margin-bottom: 1rem; }
   .hamburger { display: flex; }
   .mobile-nav { display: block; }
 }
+
+/* ===================== ACCESSIBILITY ===================== */
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--orange);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  text-decoration: none;
+  transition: top .2s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Visible focus ring on all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Remove outline for mouse users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ensure sufficient colour contrast on badges */
+.badge-live   { background: #065f46; color: #d1fae5; }
+.badge-progress { background: #78350f; color: #fef3c7; }
+.badge-concept  { background: #374151; color: #f3f4f6; }
