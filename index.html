@@ -5,210 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="assets/images/wakara_favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/wakara_favicon_32px.png" />
-  <meta name="description" content="Wakara Technologies — Learning Engineering as a Service. EdTech strategy, product design, and digital transformation for Africa and beyond." />
-  <title>Wakara Technologies</title>
+  <meta name="description" content="Wakara Technologies — Learning Engineering as a Service. We partner with EdTech leaders, public institutions, and innovation teams to design, build, and scale learning products that work." />
+  <title>Wakara Technologies — Learning Engineering as a Service</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy: #0f1e3d;
-      --sky: #4a90d9;
-      --orange: #f26522;
-      --yellow: #fcd116;
-      --cream: #fafaf7;
-      --font-head: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Inter', sans-serif;
-    }
-
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--navy);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Background glows */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 40% at 20% 30%, rgba(74,144,217,.18) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 35% at 80% 70%, rgba(242,101,34,.12) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .cs-wrap {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      max-width: 640px;
-      width: 100%;
-    }
-
-    /* Logo mark */
-    .cs-logomark {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--orange) 0%, var(--sky) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-family: var(--font-head);
-      font-size: 28px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -1px;
-    }
-
-    .cs-brand {
-      font-family: var(--font-head);
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-      margin-bottom: 1.75rem;
-    }
-
-    /* Badge */
-    .cs-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(252,209,22,.1);
-      border: 1px solid rgba(252,209,22,.25);
-      border-radius: 999px;
-      padding: .35rem 1rem;
-      font-family: var(--font-head);
-      font-size: .78rem;
-      font-weight: 600;
-      color: var(--yellow);
-      margin-bottom: 2rem;
-    }
-
-    .cs-pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--yellow);
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .4; transform: scale(.7); }
-    }
-
-    h1 {
-      font-family: var(--font-head);
-      font-size: clamp(2rem, 6vw, 3.25rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -.02em;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
-
-    h1 .gradient {
-      background: linear-gradient(90deg, var(--orange), var(--yellow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .cs-divider {
-      width: 48px;
-      height: 3px;
-      background: var(--orange);
-      border-radius: 2px;
-      margin: 1.5rem auto;
-    }
-
-    .cs-sub {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,.65);
-      max-width: 480px;
-      margin: 0 auto 2.25rem;
-    }
-
-    /* Contact pills */
-    .cs-contact {
-      display: flex;
-      gap: .75rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
-
-    .cs-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 999px;
-      padding: .5rem 1.1rem;
-      font-size: .85rem;
-      color: rgba(255,255,255,.8);
-      text-decoration: none;
-      transition: background .2s, border-color .2s;
-    }
-
-    .cs-pill:hover {
-      background: rgba(255,255,255,.13);
-      border-color: rgba(255,255,255,.22);
-    }
-
-    /* CTA */
-    .cs-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: var(--orange);
-      color: #fff;
-      font-family: var(--font-head);
-      font-size: .95rem;
-      font-weight: 700;
-      padding: .85rem 2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-
-    .cs-cta:hover {
-      background: #d9561a;
-      transform: translateY(-2px);
-    }
-
-    .cs-footer {
-      margin-top: 3rem;
-      font-size: .75rem;
-      color: rgba(255,255,255,.25);
-      letter-spacing: .04em;
-    }
-
-    @media (max-width: 480px) {
-      .cs-contact { flex-direction: column; align-items: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/theme.css" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQJL37L7R7"></script>
   <script>
@@ -220,32 +22,274 @@
 </head>
 <body>
 
-  <div class="cs-wrap">
-    <div class="cs-logomark">W</div>
-    <div class="cs-brand">Wakara Technologies</div>
-
-    <div class="cs-badge">
-      <div class="cs-pulse"></div>
-      Something big is coming
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Wakara Technologies home">
+        <img src="assets/images/wakara_logo_navbar.svg" alt="Wakara Technologies" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="prototypes.html">Prototypes</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary">Book a Consult</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <h1>Engineering the <span class="gradient">future of learning</span></h1>
-
-    <div class="cs-divider"></div>
-
-    <p class="cs-sub">We're putting the finishing touches on our new site. In the meantime, reach out or book a free 30-minute discovery call — we'd love to hear about your learning challenge.</p>
-
-    <div class="cs-contact">
-      <a href="mailto:wakaratech@gmail.com" class="cs-pill">✉ wakaratech@gmail.com</a>
-      <a href="tel:+254117784724" class="cs-pill">📞 +254 117 784 724</a>
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="prototypes.html">Prototypes</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Consult</a>
     </div>
-
-    <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="cs-cta">
-      Book a Free Consult →
-    </a>
-
-    <div class="cs-footer">© 2026 Wakara Technologies · Nairobi, Kenya</div>
   </div>
 
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-blob" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Learning Engineering as a Service
+        </div>
+        <h1>We build learning products that <span class="hero-accent">actually work</span></h1>
+        <p class="hero-sub">Wakara Technologies partners with EdTech leaders, public institutions, and innovation teams to design, build, and scale learning experiences for the African context — and beyond.</p>
+        <div class="hero-actions">
+          <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book a Free Consult &rarr;</a>
+          <a href="services.html" class="btn btn-outline btn-lg">Our Services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">12+</span>
+            <span class="stat-label">Years in EdTech</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">8</span>
+            <span class="stat-label">Live Prototypes</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Service Areas</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card-stack">
+          <div class="hero-card hc-1">
+            <div class="hc-icon">📐</div>
+            <div class="hc-text">Learning Experience Design</div>
+          </div>
+          <div class="hero-card hc-2">
+            <div class="hc-icon">🤖</div>
+            <div class="hc-text">AI-Powered Learning Tools</div>
+          </div>
+          <div class="hero-card hc-3">
+            <div class="hc-icon">📱</div>
+            <div class="hc-text">Mobile-First &amp; Low-Bandwidth</div>
+          </div>
+          <div class="hero-card hc-4">
+            <div class="hc-icon">🌍</div>
+            <div class="hc-text">Built for Africa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section section-cream" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">What We Do</span>
+        <h2 id="services-heading">Five ways we can help</h2>
+        <p style="color:var(--gray-600);max-width:520px;margin:.75rem auto 0;font-size:1rem;">From strategy to shipped product — we cover the full learning engineering stack.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card card-hover">
+          <div class="service-icon icon-sky">📐</div>
+          <h3>Learning Experience Design</h3>
+          <p>Curriculum architecture, instructional design, and learning product strategy grounded in evidence and built for real learners.</p>
+          <a href="services.html" class="service-link">Learn more &rarr;</a>
+        </div>
+        <div class="service-card card-hover">
+          <div class="service-icon icon-orange">⚡</div>
+          <h3>Digital Transformation Strategy</h3>
+          <p>Helping institutions move from analogue to digital without losing what works — pragmatic, context-aware transformation.</p>
+          <a href="services.html" class="service-link">Learn more &rarr;</a>
+        </div>
+        <div class="service-card card-hover">
+          <div class="service-icon icon-yellow">🔬</div>
+          <h3>Product &amp; Innovation Engineering</h3>
+          <p>Building learning tools, platforms, and prototypes from scratch — rapid prototyping, MVP development, and iteration.</p>
+          <a href="services.html" class="service-link">Learn more &rarr;</a>
+        </div>
+        <div class="service-card card-hover">
+          <div class="service-icon icon-navy">♿</div>
+          <h3>Accessibility &amp; Inclusion</h3>
+          <p>Designing for low-bandwidth, low-literacy, and low-resource contexts so learning products reach the learners who need them most.</p>
+          <a href="services.html" class="service-link">Learn more &rarr;</a>
+        </div>
+        <div class="service-card card-hover">
+          <div class="service-icon icon-orange">📈</div>
+          <h3>Growth &amp; Scale Operations</h3>
+          <p>Systems and processes to take learning products from successful pilot to sustainable scale — without losing quality.</p>
+          <a href="services.html" class="service-link">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CASE STUDIES ===================== -->
+  <section class="section section-light" aria-labelledby="work-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Our Work</span>
+        <h2 id="work-heading">Case Studies</h2>
+        <p style="color:var(--gray-600);max-width:520px;margin:.75rem auto 0;font-size:1rem;">Real projects, real outcomes. A sample of what we've built and the impact it created.</p>
+      </div>
+      <div class="case-grid" id="case-grid">
+        <div style="grid-column:1/-1;text-align:center;padding:3rem;">
+          <p style="color:var(--gray-400);">Case studies coming soon.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:1rem;">Work with us &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROTOTYPES ===================== -->
+  <section class="section section-cream" aria-labelledby="prototypes-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">TinkerWith_ Lab</span>
+        <h2 id="prototypes-heading">Prototypes &amp; Experiments</h2>
+        <p style="color:var(--gray-600);max-width:520px;margin:.75rem auto 0;font-size:1rem;">We build in the open. Here's a selection of live tools from our R&amp;D practice.</p>
+      </div>
+      <div class="proto-grid" id="proto-grid-home">
+        <div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--gray-400);">Loading prototypes…</div>
+      </div>
+      <div class="text-center" style="margin-top:2.5rem;">
+        <a href="prototypes.html" class="btn btn-outline">View all prototypes &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container text-center">
+      <h2>Ready to build something that works?</h2>
+      <p>Book a free 30-minute discovery call. No hard sell — just a genuine conversation about your learning challenge.</p>
+      <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-white">Book a Free Consult &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/wakara_logo_dark_bg.svg" alt="Wakara Technologies" class="footer-logo-img" />
+          <p class="footer-tagline">Learning Engineering as a Service. We partner with EdTech leaders, public institutions, and innovation teams to design, build, and scale learning products that work.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="prototypes.html">Prototypes</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Learning Experience Design</a></li>
+            <li><a href="services.html">Digital Transformation</a></li>
+            <li><a href="services.html">Product Engineering</a></li>
+            <li><a href="services.html">Accessibility &amp; Inclusion</a></li>
+            <li><a href="services.html">Growth &amp; Scale Ops</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Wakara Technologies. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="admin.html" style="opacity:.3;font-size:.72rem;">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/theme.js"></script>
+  <script>
+    const badgeMap = { live:'badge-live', progress:'badge-progress', concept:'badge-concept' };
+    const badgeLabel = { live:'Live', progress:'In Progress', concept:'Concept' };
+    fetch('content.json?v=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const grid = document.getElementById('proto-grid-home');
+        if (!data.prototypes || !data.prototypes.length) {
+          grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--gray-400);">No prototypes yet.</div>';
+          return;
+        }
+        const featured = data.prototypes.slice(0, 3);
+        grid.innerHTML = featured.map(p => {
+          const badge = badgeMap[p.status] || 'badge-concept';
+          const label = badgeLabel[p.status] || 'Concept';
+          const tags = (p.tags || []).map(t => `<span class="proto-tag">${t}</span>`).join('');
+          const link = p.url
+            ? `<a href="${p.url}" target="_blank" rel="noopener" class="proto-link">View Project &rarr;</a>`
+            : `<span style="font-size:.8rem;color:var(--gray-400);">Coming soon</span>`;
+          return `
+          <article class="proto-card">
+            <div class="proto-card-header">
+              <h3>${p.name}</h3>
+              <span class="badge ${badge}">${label}</span>
+            </div>
+            <p>${p.description}</p>
+            <div class="proto-tags">${tags}</div>
+            <div class="proto-footer">${link}</div>
+          </article>`;
+        }).join('');
+      });
+
+    fetch('content.json?v=' + Date.now())
+      .then(r => r.json())
+      .then(data => {
+        const grid = document.getElementById('case-grid');
+        if (!data.case_studies || !data.case_studies.length) return;
+        grid.innerHTML = data.case_studies.map(c => `
+          <div class="case-card card-hover">
+            <div class="case-card-inner">
+              <span class="case-tag">${c.sector || 'EdTech'}</span>
+              <h3>${c.title}</h3>
+              <p>${c.summary}</p>
+              ${c.url ? `<a href="${c.url}" class="service-link">Read case study &rarr;</a>` : ''}
+            </div>
+          </div>`).join('');
+      });
+  </script>
 </body>
 </html>
