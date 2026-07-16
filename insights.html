@@ -150,7 +150,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/images/wakara_logo_dark_bg.svg" alt="Wakara Technologies" class="footer-logo-img" />
-          <p class="footer-tagline">Learning Engineering as a Service. We partner with EdTech leaders, public institutions, and innovation teams to design, build, and scale learning products that work.</p>
+          <p class="footer-tagline">Human-Centred Design &amp; Learning Engineering as a Service. We partner with EdTech leaders, public institutions, and innovation teams to design, build, and scale learning products that work.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -207,8 +207,10 @@
         grid.innerHTML = data.insights.map(a => {
           const bg = catColors[a.category] || 'var(--sky)';
           const fg = catText[a.category] || 'var(--white)';
-          const link = a.linkedin_url
-            ? `<a href="${a.linkedin_url}" target="_blank" rel="noopener" class="insight-link">Read on LinkedIn &rarr;</a>`
+          const extUrl = a.url || a.linkedin_url;
+          const extLabel = a.url_label || (a.linkedin_url ? 'Read on LinkedIn' : 'Read more');
+          const link = extUrl
+            ? `<a href="${extUrl}" target="_blank" rel="noopener" class="insight-link">${extLabel} &rarr;</a>`
             : `<span style="font-size:.8rem;color:var(--gray-400);font-style:italic;">Coming soon</span>`;
           const fmt = a.date ? new Date(a.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}) : '';
           return `

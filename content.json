@@ -2,31 +2,14 @@
   "case_studies": [],
   "insights": [
     {
-      "id": "leaas-model",
-      "category": "Strategy",
-      "emoji": "\ud83e\udde9",
-      "title": "Why Learning Engineering is the missing layer in EdTech",
-      "excerpt": "Most EdTech products are built by engineers or educators \u2014 rarely both. Learning Engineering bridges that gap, treating curriculum as a product and learners as users.",
-      "date": "2026-06-01",
-      "linkedin_url": ""
-    },
-    {
-      "id": "africa-mobile-first",
-      "category": "Accessibility",
-      "emoji": "\ud83d\udcf1",
-      "title": "Building for the next billion learners: a mobile-first, low-bandwidth playbook",
-      "excerpt": "Designing for learners in rural Kenya, Ghana, or Rwanda means rethinking every assumption about connectivity, device capability, and data cost. Here's how we approach it.",
-      "date": "2026-05-15",
-      "linkedin_url": ""
-    },
-    {
-      "id": "ai-curriculum",
-      "category": "AI in Learning",
-      "emoji": "\ud83e\udd16",
-      "title": "AI tutors are coming \u2014 but are they learning engineers?",
-      "excerpt": "The rush to add AI to learning platforms often skips the curriculum design step entirely. We break down what AI can and can't replace in the learning engineering stack.",
-      "date": "2026-04-28",
-      "linkedin_url": ""
+      "id": "six-lessons-edtech-research-kenya",
+      "category": "EdTech Research",
+      "emoji": "\ud83d\udd0d",
+      "title": "Six lessons from conducting EdTech research in Kenya",
+      "excerpt": "Four years of evaluating EdTech programmes across mobile learning, curriculum development, and early childhood education in Kenya \u2014 distilled into six lessons every practitioner should know before deploying.",
+      "date": "2015-10-01",
+      "url": "https://medium.com/iresearch-tech/six-lessons-from-conducting-edtech-research-in-kenya-b662915baadd",
+      "url_label": "Read on Medium"
     }
   ],
   "prototypes": [
