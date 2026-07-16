@@ -57,13 +57,25 @@
       "id": "tinkerwithme",
       "name": "TinkerWith Me",
       "status": "live",
-      "description": "A curriculum selector for Robotics & AI \u2014 helps young learners and educators navigate hands-on project pathways based on age, interest, and skill level.",
+      "description": "A structured eLearning environment for Robotics & AI \u2014 giving young learners and educators access to guided courses, project pathways, and hands-on learning sequences in one place.",
+      "tags": [
+        "Robotics",
+        "AI",
+        "eLearning"
+      ],
+      "url": "https://tinkerwith.me"
+    },
+    {
+      "id": "tinkerwithme-diy",
+      "name": "TinkerWith Me \u2014 DIY Selector",
+      "status": "live",
+      "description": "A curriculum selector prototype for Robotics & AI \u2014 helps young learners and educators navigate hands-on project pathways based on age, interest, and skill level. The self-guided companion to the full TinkerWith Me platform.",
       "tags": [
         "Robotics",
         "AI",
         "Curriculum"
       ],
-      "url": "https://tinkerwith.me"
+      "url": "https://anny320.github.io/tinkerwithme/"
     },
     {
       "id": "secure360",
