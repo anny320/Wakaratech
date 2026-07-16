@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/wakara_favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/wakara_favicon_32px.png" />
+  <meta name="description" content="Wakara Technologies M&amp;E Research — Monitoring, evaluation, and tech research across EdTech, mGovernance, and digital inclusion in Africa." />
+  <title>M&amp;E Research — Wakara Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQJL37L7R7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FQJL37L7R7');
+  </script>
+  <style>
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pub-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem 1.5rem;
+      align-items: start;
+      transition: box-shadow .2s;
+    }
+    .pub-card:hover { box-shadow: var(--shadow-md); }
+    .pub-year {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      min-width: 3.5rem;
+    }
+    .pub-body {}
+    .pub-title {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 .35rem;
+      text-wrap: balance;
+    }
+    .pub-authors { font-size: .88rem; color: var(--gray-500); margin: 0 0 .5rem; }
+    .pub-venue {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 600;
+      background: var(--sky);
+      color: var(--white);
+      padding: .2rem .65rem;
+      border-radius: 100px;
+      margin-bottom: .6rem;
+    }
+    .pub-abstract { font-size: .9rem; color: var(--gray-600); margin: .5rem 0 0; line-height: 1.65; }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .method-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-top: 3px solid var(--sky);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .method-icon { font-size: 1.8rem; margin-bottom: .75rem; }
+    .method-card h4 { font-size: .95rem; color: var(--navy); margin: 0 0 .4rem; }
+    .method-card p { font-size: .87rem; color: var(--gray-600); margin: 0; line-height: 1.6; }
+
+    .collab-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .collab-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .875rem;
+    }
+    .collab-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+    .collab-card span { font-size: .9rem; font-weight: 600; color: var(--navy); }
+
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .domain-card {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .domain-card .domain-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--sky);
+      opacity: .5;
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .domain-card h3 { font-size: 1.05rem; color: var(--white); margin: 0 0 .5rem; }
+    .domain-card p { font-size: .87rem; color: rgba(255,255,255,.7); margin: 0; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Wakara Technologies home">
+        <img src="assets/images/wakara_logo_navbar.svg" alt="Wakara Technologies" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="hcd.html">HCD Studio</a></li>
+        <li><a href="research.html" class="active">M&amp;E Research</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="prototypes.html">Prototypes</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary">Book a Consult</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="hcd.html">HCD Studio</a>
+    <a href="research.html" class="active">M&amp;E Research</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="prototypes.html">Prototypes</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Consult</a>
+    </div>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="main-content" aria-label="Hero section" style="background:var(--navy);">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Monitoring &amp; Evaluation Research
+          </div>
+          <h1 class="hero-title" style="color:var(--white);">Evidence that drives <span style="color:var(--sky);">real change</span></h1>
+          <p class="hero-subtitle" style="color:rgba(255,255,255,.75);">Rigorous M&amp;E research at the intersection of technology, governance, and learning in Africa — published, peer-reviewed, and actionable.</p>
+          <div class="hero-ctas">
+            <a href="#publications" class="btn btn-primary btn-lg">View Publications &darr;</a>
+            <a href="contact.html" class="btn btn-outline btn-lg" style="color:var(--white);border-color:rgba(255,255,255,.4);">Commission Research</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-val" style="color:var(--sky);">5<span>+</span></div>
+              <div class="stat-label" style="color:rgba(255,255,255,.6);">Publications</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val" style="color:var(--sky);">3</div>
+              <div class="stat-label" style="color:rgba(255,255,255,.6);">Research Domains</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val" style="color:var(--sky);">10<span>+</span></div>
+              <div class="stat-label" style="color:rgba(255,255,255,.6);">Years Active</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-blob" style="background:rgba(74,144,217,.12);border:2px solid rgba(74,144,217,.3);">
+            <div class="blob-text" style="color:var(--white);">
+              <strong style="color:var(--sky);">M&amp;E</strong>
+              Monitoring &amp; Evaluation<br>Research Practice
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESEARCH DOMAINS ===================== -->
+  <section class="section section-cream" aria-labelledby="domains-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Research Focus</span>
+        <h2 id="domains-heading">Three core domains</h2>
+        <p style="color:var(--gray-600);max-width:540px;margin:.75rem auto 0;font-size:1rem;">Research that sits at the intersection of technology, public service, and learning — with an African context as the constant.</p>
+      </div>
+      <div class="domain-grid">
+        <div class="domain-card">
+          <div class="domain-num">01</div>
+          <h3>mGovernance &amp; Civic Tech</h3>
+          <p>How mobile technology reshapes citizen–government interaction in emerging markets, with a focus on water services and anti-corruption mechanisms in Kenya.</p>
+        </div>
+        <div class="domain-card">
+          <div class="domain-num">02</div>
+          <h3>EdTech &amp; Digital Learning</h3>
+          <p>Effectiveness of digital content and hardware hacking programmes for skills transfer in Kenyan schools and youth programmes — including mobile device integration and maker education.</p>
+        </div>
+        <div class="domain-card">
+          <div class="domain-num">03</div>
+          <h3>Mobile Platform Growth</h3>
+          <p>Analysis of EdTech platform scaling, user growth patterns, and ecosystem conditions that drive or constrain mobile education adoption across sub-Saharan Africa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PUBLICATIONS ===================== -->
+  <section class="section section-light" id="publications" aria-labelledby="pubs-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Academic Work</span>
+        <h2 id="pubs-heading">Peer-Reviewed Publications</h2>
+        <p style="color:var(--gray-600);max-width:540px;margin:.75rem auto 0;font-size:1rem;">Published research across ACM, IGI Global, and ICERI — co-authored with colleagues at iHub Research and partner institutions.</p>
+      </div>
+      <div class="pub-list">
+
+        <article class="pub-card">
+          <div class="pub-year">2015</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Kids Hacker Camps in Kenya: Hardware Hacking Effectiveness in Skills Transfer</h3>
+            <p class="pub-authors">Wachira Ndaiga &amp; Anne Salim</p>
+            <span class="pub-venue">ACM · iHub Research</span>
+            <p class="pub-abstract">An evaluation of hardware hacking camps for children using Arduino and Raspberry Pi platforms. The study applied participant observation, video interviews, and iterative curriculum evaluation to measure the transfer of the 5Cs — Collaboration, Communication, Creativity, Critical Thinking, and Curiosity — among 100 young participants across multiple camp cohorts in Kenya.</p>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <div class="pub-year">2014</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Mobile Governance: An Effective Tool to Fight Corruption in Kenya</h3>
+            <p class="pub-authors">Anne Salim &amp; Nathan Wangusi</p>
+            <span class="pub-venue">ACM · iHub Research</span>
+            <p class="pub-abstract">Examines the role of mobile platforms in anti-corruption governance in Kenya, analysing citizen-facing tools that enable reporting, accountability, and transparency in public service delivery. Situates mobile governance within the broader landscape of ICT4D and public sector reform.</p>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <div class="pub-year">2013</div>
+          <div class="pub-body">
+            <h3 class="pub-title">mGovernance: Use of Technology in Water Services Delivery</h3>
+            <p class="pub-authors">Hilda Moraa, Anne Salim &amp; Albert Orwa</p>
+            <span class="pub-venue">IGI Global · iHub Research</span>
+            <p class="pub-abstract">A foundational study on the application of mobile technology to improve water service delivery and accountability in Kenya. Explores how SMS-based and mobile-first government systems can close the gap between citizens and service providers in underserved communities.</p>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <div class="pub-year">2012</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Development of Local Educational Digital Content for Schools in Kenya Using Mobile Devices</h3>
+            <p class="pub-authors">Colaco, Makhanu &amp; Anne Salim</p>
+            <span class="pub-venue">ICERI 2012</span>
+            <p class="pub-abstract">Investigates the creation and deployment of locally-relevant digital educational content for Kenyan schools via mobile devices. Addresses the critical need for context-appropriate content as a prerequisite for meaningful digital learning outcomes in low-resource settings.</p>
+          </div>
+        </article>
+
+        <article class="pub-card">
+          <div class="pub-year">2013–</div>
+          <div class="pub-body">
+            <h3 class="pub-title">Growth of Mobile Education Platforms and Other EdTech</h3>
+            <p class="pub-authors">Anne Salim</p>
+            <span class="pub-venue">Research Report</span>
+            <p class="pub-abstract">Analysis of mobile education platform growth trajectories, user adoption patterns, and enabling conditions for EdTech scaling across sub-Saharan Africa. Draws on longitudinal data and platform metrics to identify what separates pilots that scale from those that stall.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== METHODOLOGY ===================== -->
+  <section class="section section-cream" aria-labelledby="method-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">How We Research</span>
+        <h2 id="method-heading">M&amp;E Methodology</h2>
+        <p style="color:var(--gray-600);max-width:540px;margin:.75rem auto 0;font-size:1rem;">Combining quantitative rigor with qualitative depth — because numbers without context miss the story.</p>
+      </div>
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-icon">👁️</div>
+          <h4>Participant Observation</h4>
+          <p>Embedded fieldwork in programme sites — workshops, classrooms, community settings — to capture what surveys miss.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">🎥</div>
+          <h4>Video Ethnography</h4>
+          <p>Structured video interviews and session recordings to document learning behaviour and programme impact over time.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">📋</div>
+          <h4>Trainer &amp; Facilitator Reports</h4>
+          <p>Systematic data collection from programme staff, including observation checklists, curriculum logs, and incident notes.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">🔁</div>
+          <h4>Iterative Curriculum M&amp;E</h4>
+          <p>Embedding evaluation loops within programme cycles so findings feed directly back into design — not just into a final report.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">📊</div>
+          <h4>Platform Analytics</h4>
+          <p>Usage data, growth metrics, and user behaviour analysis for digital tools and EdTech platforms.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">🌍</div>
+          <h4>Context-First Framing</h4>
+          <p>Research designed from the ground up for African contexts — not imported frameworks retrofitted onto local data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COLLABORATORS ===================== -->
+  <section class="section section-light" aria-labelledby="collab-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Research Partners</span>
+        <h2 id="collab-heading">Colleagues &amp; Collaborators</h2>
+        <p style="color:var(--gray-600);max-width:540px;margin:.75rem auto 0;font-size:1rem;">Research is always a team sport. These are the colleagues this work has been done alongside.</p>
+      </div>
+      <div class="collab-list">
+        <div class="collab-card"><div class="collab-dot"></div><span>Hilda Moraa — iHub Research</span></div>
+        <div class="collab-card"><div class="collab-dot"></div><span>Nathan Wangusi — ACM Kenya</span></div>
+        <div class="collab-card"><div class="collab-dot"></div><span>Albert Orwa — iHub Research</span></div>
+        <div class="collab-card"><div class="collab-dot"></div><span>Wachira Ndaiga — iHub Research</span></div>
+        <div class="collab-card"><div class="collab-dot"></div><span>Colaco &amp; Makhanu — ICERI</span></div>
+        <div class="collab-card"><div class="collab-dot"></div><span>iHub Research Team, Nairobi</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMMISSION ===================== -->
+  <section class="section section-cream" aria-labelledby="commission-heading">
+    <div class="container">
+      <div style="max-width:720px;margin:0 auto;">
+        <div class="text-center" style="margin-bottom:2.5rem;">
+          <span class="section-label">Commission Research</span>
+          <h2 id="commission-heading">Need evidence for your programme?</h2>
+          <p style="color:var(--gray-600);max-width:540px;margin:.75rem auto 0;font-size:1rem;">We design and run M&amp;E frameworks for EdTech initiatives, government digital programmes, and innovation pilots across Africa.</p>
+        </div>
+        <div class="services-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+          <div class="service-card" style="border-top:3px solid var(--sky);">
+            <h3 style="font-size:1rem;">Programme Evaluation</h3>
+            <p style="font-size:.87rem;">End-to-end evaluation design, data collection, analysis, and reporting for digital programmes.</p>
+          </div>
+          <div class="service-card" style="border-top:3px solid var(--orange);">
+            <h3 style="font-size:1rem;">Learning Impact Studies</h3>
+            <p style="font-size:.87rem;">Rigorous measurement of learning outcomes for EdTech products and training programmes.</p>
+          </div>
+          <div class="service-card" style="border-top:3px solid var(--yellow);">
+            <h3 style="font-size:1rem;">M&amp;E Framework Design</h3>
+            <p style="font-size:.87rem;">Build the measurement infrastructure your programme needs before you start collecting data.</p>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top:2rem;">
+          <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book a Research Consultation &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container text-center">
+      <h2>Research that moves programmes forward</h2>
+      <p>Let's design an M&amp;E framework that gives your team the evidence it needs to improve, scale, and sustain impact.</p>
+      <a href="contact.html" class="btn btn-white">Get in Touch &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/wakara_logo_dark_bg.svg" alt="Wakara Technologies" class="footer-logo-img" />
+          <p class="footer-tagline">Human-Centred Design &amp; Learning Engineering as a Service. We partner with EdTech leaders, public institutions, and innovation teams to design, build, and scale learning products that work.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="hcd.html">HCD Studio</a></li>
+            <li><a href="research.html">M&amp;E Research</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="prototypes.html">Prototypes</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Practice Areas</h4>
+          <ul>
+            <li><a href="services.html">Learning Engineering (LEaaS)</a></li>
+            <li><a href="hcd.html">HCD Studio</a></li>
+            <li><a href="research.html">M&amp;E Research</a></li>
+            <li><a href="prototypes.html">TinkerWith_ Lab</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Wakara Technologies. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="admin.html" style="opacity:.3;font-size:.72rem;">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>
