@@ -2,6 +2,26 @@
   "case_studies": [],
   "insights": [
     {
+      "id": "website-hacked-security",
+      "category": "Strategy",
+      "emoji": "🔐",
+      "title": "When my own website was hacked, I realised security isn't just an IT problem",
+      "excerpt": "A personal account of getting hacked — and what it revealed about how we think (and don't think) about digital security as product builders and digital practitioners.",
+      "date": "2025-01-01",
+      "url": "https://www.linkedin.com/pulse/when-my-own-website-hacked-i-realised-security-isnt-just-anne-salim-jxx1f/",
+      "url_label": "Read on LinkedIn"
+    },
+    {
+      "id": "building-mvps-creative-outlet",
+      "category": "Innovation Strategy",
+      "emoji": "🛠️",
+      "title": "Building MVPs as a creative outlet — MVP 1",
+      "excerpt": "What happens when you treat product building as a personal practice? The first in a series on using rapid MVP development to explore ideas, sharpen thinking, and ship things that matter.",
+      "date": "2025-01-01",
+      "url": "https://www.linkedin.com/pulse/building-mvps-creative-outlet-mvp-1-anne-salim-iljvf/",
+      "url_label": "Read on LinkedIn"
+    },
+    {
       "id": "six-lessons-edtech-research-kenya",
       "category": "EdTech Research",
       "emoji": "\ud83d\udd0d",
