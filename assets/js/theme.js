@@ -38,6 +38,39 @@
     });
   }
 
+  /* ---------- Dropdown toggle ---------- */
+  document.querySelectorAll('.nav-links li.has-dropdown > a').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      const li = trigger.closest('li.has-dropdown');
+      const isOpen = li.classList.toggle('open');
+      // Close others
+      document.querySelectorAll('.nav-links li.has-dropdown').forEach(function (other) {
+        if (other !== li) other.classList.remove('open');
+      });
+      // Navigate on second click (already open)
+      if (!isOpen) window.location.href = trigger.href;
+    });
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav-links li.has-dropdown')) {
+      document.querySelectorAll('.nav-links li.has-dropdown').forEach(function (li) {
+        li.classList.remove('open');
+      });
+    }
+  });
+
+  // Close dropdown on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-links li.has-dropdown').forEach(function (li) {
+        li.classList.remove('open');
+      });
+    }
+  });
+
   /* ---------- Navbar shadow on scroll ---------- */
   const navbar = document.querySelector('.navbar');
   if (navbar) {
