@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/wakara_favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/wakara_favicon_32px.png" />
+  <meta name="description" content="Wakara HCD Studio — Human-Centred Design for digital products in emerging markets. Design with purpose. Build with people." />
+  <title>HCD Studio — Wakara Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQJL37L7R7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FQJL37L7R7');
+  </script>
+  <style>
+    /* Phase timeline */
+    .phase-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .phase-list::before {
+      content: '';
+      position: absolute;
+      left: 2.25rem;
+      top: 3rem;
+      bottom: 3rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--sky), var(--orange));
+    }
+    .phase-item {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      position: relative;
+    }
+    .phase-num {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 2px solid var(--sky);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--sky);
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .phase-num.orange { border-color: var(--orange); color: var(--orange); }
+    .phase-num.yellow { border-color: var(--yellow); color: var(--yellow); }
+    .phase-body {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+    .phase-body h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: .25rem;
+    }
+    .phase-tag {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--sky);
+      font-family: var(--font-head);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .phase-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .phase-col h4 {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: .5rem;
+    }
+    .phase-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+    .phase-col ul li {
+      font-size: .875rem;
+      color: var(--gray-600);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .phase-col ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--sky);
+      font-size: .75rem;
+    }
+    .phase-note {
+      margin-top: 1rem;
+      padding: .75rem 1rem;
+      background: rgba(74,144,217,.06);
+      border-left: 3px solid var(--sky);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: .85rem;
+      color: var(--gray-600);
+      font-style: italic;
+    }
+
+    /* Packages table */
+    .packages-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+    }
+    .packages-table th {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      font-family: var(--font-head);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 1rem 1.25rem;
+      text-align: left;
+    }
+    .packages-table td {
+      padding: 1.1rem 1.25rem;
+      font-size: .9rem;
+      color: var(--gray-700, #374151);
+      border-bottom: 1px solid var(--gray-200);
+      vertical-align: top;
+    }
+    .packages-table tr:last-child td { border-bottom: none; }
+    .packages-table tr:nth-child(even) td { background: var(--gray-100); }
+    .pkg-name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* Principles grid */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .principle-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      border-top: 3px solid var(--orange);
+    }
+    .principle-card h3 {
+      font-size: .95rem;
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .principle-card p {
+      font-size: .875rem;
+      color: var(--gray-600);
+      margin: 0;
+    }
+
+    /* Metrics table */
+    .metrics-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+    }
+    .metrics-table th {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      font-family: var(--font-head);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .9rem 1.25rem;
+      text-align: left;
+    }
+    .metrics-table td {
+      padding: .9rem 1.25rem;
+      font-size: .875rem;
+      color: var(--gray-600);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .metrics-table tr:last-child td { border-bottom: none; }
+    .metrics-table tr:nth-child(even) td { background: var(--gray-100); }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: var(--orange);
+      line-height: 1;
+      font-family: Georgia, serif;
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      opacity: .3;
+    }
+    .testimonial-card blockquote {
+      font-size: .95rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin: 0 0 1rem;
+      padding-top: 1.5rem;
+    }
+    .testimonial-card cite {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--navy);
+      font-family: var(--font-head);
+      font-style: normal;
+    }
+
+    /* Steps */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      counter-reset: step;
+    }
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: .85rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .step-item h4 {
+      font-size: .95rem;
+      color: var(--navy);
+      margin-bottom: .2rem;
+    }
+    .step-item p {
+      font-size: .875rem;
+      color: var(--gray-600);
+      margin: 0;
+    }
+
+    /* Glossary */
+    .glossary-list {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .glossary-item {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: 1rem;
+      padding: .9rem 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-size: .875rem;
+    }
+    .glossary-term {
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .glossary-def { color: var(--gray-600); }
+
+    @media (max-width: 768px) {
+      .phase-list::before { display: none; }
+      .phase-item { grid-template-columns: 1fr; }
+      .phase-num { display: none; }
+      .phase-cols { grid-template-columns: 1fr; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .glossary-item { grid-template-columns: 1fr; }
+      .packages-table { font-size: .8rem; }
+    }
+    @media (max-width: 640px) {
+      .principles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Wakara Technologies home">
+        <img src="assets/images/wakara_logo_navbar.svg" alt="Wakara Technologies" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="hcd.html" class="active">HCD Studio</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="prototypes.html">Prototypes</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary">Book a Consult</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="hcd.html" class="active">HCD Studio</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="prototypes.html">Prototypes</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Consult</a>
+    </div>
+  </div>
+
+  <!-- ===================== PAGE HERO ===================== -->
+  <header class="page-hero" id="main-content" aria-label="HCD Studio page hero">
+    <div class="container page-hero-content">
+      <span class="section-label">Wakara HCD Studio</span>
+      <h1>Design with Purpose.<br>Build with People.</h1>
+      <p class="hero-sub">We believe the best technology doesn't just work — it resonates. Solving real problems for real people, especially in complex, diverse environments.</p>
+    </div>
+  </header>
+
+  <!-- ===================== WHY HCD ===================== -->
+  <section class="section section-cream" aria-labelledby="why-heading">
+    <div class="container">
+      <div style="max-width:800px;margin:0 auto;">
+        <span class="section-label">Why It Matters</span>
+        <h2 id="why-heading" style="margin-bottom:1.5rem;">Technology fails not because of bad code — but because it ignores people.</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2.5rem;">
+          <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:1.5rem;text-align:center;border-top:3px solid var(--orange);">
+            <div style="font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--orange);">70%</div>
+            <div style="font-size:.85rem;color:var(--gray-600);margin-top:.35rem;">of digital projects fail due to poor user adoption</div>
+            <div style="font-size:.72rem;color:var(--gray-400);margin-top:.25rem;">Source: McKinsey</div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:1.5rem;text-align:center;border-top:3px solid var(--sky);">
+            <div style="font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--sky);">5×</div>
+            <div style="font-size:.85rem;color:var(--gray-600);margin-top:.35rem;">higher user satisfaction with HCD-designed products</div>
+          </div>
+          <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:1.5rem;text-align:center;border-top:3px solid var(--yellow);">
+            <div style="font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--navy);">50%</div>
+            <div style="font-size:.85rem;color:var(--gray-600);margin-top:.35rem;">faster time-to-market with people-centred processes</div>
+          </div>
+        </div>
+
+        <div style="background:var(--navy);border-radius:var(--radius-md);padding:1.75rem 2rem;">
+          <p style="color:rgba(255,255,255,.85);font-size:1rem;line-height:1.75;margin:0;">
+            <strong style="color:var(--yellow);">HCD is not a phase — it's a mindset.</strong><br>
+            We don't assume. We listen. We test. We co-create. Whether you're a startup, NGO, government agency, or enterprise, our HCD practice helps you turn ideas into human-first solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE 5 PHASES ===================== -->
+  <section class="section section-light" aria-labelledby="framework-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Our Framework</span>
+        <h2 id="framework-heading">The Wakara HCD Framework: 5 Phases</h2>
+        <p style="color:var(--gray-600);max-width:520px;margin:.75rem auto 0;font-size:1rem;">Flexible, iterative, and built for real-world impact.</p>
+      </div>
+
+      <div class="phase-list" style="max-width:860px;margin:0 auto;">
+
+        <div class="phase-item">
+          <div class="phase-num">01</div>
+          <div class="phase-body">
+            <span class="phase-tag">Connect</span>
+            <h3>Align &amp; Understand</h3>
+            <p style="color:var(--gray-600);font-size:.9rem;">Define the challenge and stakeholders. We start here to ensure everyone is solving the right problem.</p>
+            <div class="phase-cols">
+              <div class="phase-col">
+                <h4>Key Activities</h4>
+                <ul>
+                  <li>Stakeholder interviews</li>
+                  <li>Goal mapping</li>
+                  <li>Success metric definition (KPIs)</li>
+                  <li>Scope &amp; timeline planning</li>
+                </ul>
+              </div>
+              <div class="phase-col">
+                <h4>Deliverables</h4>
+                <ul>
+                  <li>Project Charter</li>
+                  <li>Research Plan</li>
+                  <li>Stakeholder Map</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-item">
+          <div class="phase-num orange">02</div>
+          <div class="phase-body">
+            <span class="phase-tag" style="color:var(--orange);">Research</span>
+            <h3>Listen &amp; Learn</h3>
+            <p style="color:var(--gray-600);font-size:.9rem;">We go where users are — urban, rural, online, offline — to see the full picture.</p>
+            <div class="phase-cols">
+              <div class="phase-col">
+                <h4>Key Methods</h4>
+                <ul>
+                  <li>In-depth user interviews</li>
+                  <li>Ethnographic field studies</li>
+                  <li>Journey mapping</li>
+                  <li>Empathy mapping</li>
+                  <li>Surveys &amp; diary studies</li>
+                </ul>
+              </div>
+              <div class="phase-col">
+                <h4>Deliverables</h4>
+                <ul>
+                  <li>User Personas</li>
+                  <li>Journey Maps</li>
+                  <li>Insights Report</li>
+                  <li>"Jobs to be Done" Framework</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-item">
+          <div class="phase-num yellow" style="border-color:var(--yellow);color:var(--navy);">03</div>
+          <div class="phase-body">
+            <span class="phase-tag" style="color:var(--navy);">Ideate</span>
+            <h3>Co-Create &amp; Explore</h3>
+            <p style="color:var(--gray-600);font-size:.9rem;">We don't design for people — we design with them. The best ideas come from users, not boardrooms.</p>
+            <div class="phase-cols">
+              <div class="phase-col">
+                <h4>Key Methods</h4>
+                <ul>
+                  <li>Co-creation workshops</li>
+                  <li>How Might We? sessions</li>
+                  <li>Storyboarding</li>
+                  <li>Concept sketching</li>
+                </ul>
+              </div>
+              <div class="phase-col">
+                <h4>Deliverables</h4>
+                <ul>
+                  <li>Idea Portfolio</li>
+                  <li>Concept Screens</li>
+                  <li>Prioritized Solution Set</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-item">
+          <div class="phase-num orange">04</div>
+          <div class="phase-body">
+            <span class="phase-tag" style="color:var(--orange);">Prototype &amp; Test</span>
+            <h3>Build &amp; Validate</h3>
+            <p style="color:var(--gray-600);font-size:.9rem;">Fail early, fix cheaply, succeed confidently.</p>
+            <div class="phase-cols">
+              <div class="phase-col">
+                <h4>Key Activities</h4>
+                <ul>
+                  <li>Low-fidelity prototypes</li>
+                  <li>High-fidelity clickable prototypes</li>
+                  <li>Usability testing (remote &amp; in-person)</li>
+                  <li>A/B concept testing</li>
+                  <li>Iterative refinement</li>
+                </ul>
+              </div>
+              <div class="phase-col">
+                <h4>Deliverables</h4>
+                <ul>
+                  <li>Interactive Prototype</li>
+                  <li>Usability Report</li>
+                  <li>Refined Design Specifications</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phase-item">
+          <div class="phase-num">05</div>
+          <div class="phase-body">
+            <span class="phase-tag">Deliver &amp; Scale</span>
+            <h3>Handoff &amp; Grow</h3>
+            <p style="color:var(--gray-600);font-size:.9rem;">Great design doesn't end at launch — it evolves with users.</p>
+            <div class="phase-cols">
+              <div class="phase-col">
+                <h4>Key Activities</h4>
+                <ul>
+                  <li>Design handoff to developers</li>
+                  <li>UX guidelines &amp; component library</li>
+                  <li>Training for client teams</li>
+                  <li>Roadmap for iteration</li>
+                  <li>Post-launch evaluation plan</li>
+                </ul>
+              </div>
+              <div class="phase-col">
+                <h4>Deliverables</h4>
+                <ul>
+                  <li>Final Design System (Figma)</li>
+                  <li>User Testing Summary</li>
+                  <li>HCD Integration Guide</li>
+                  <li>Impact Dashboard (optional)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PACKAGES ===================== -->
+  <section class="section section-cream" aria-labelledby="packages-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Engagement Models</span>
+        <h2 id="packages-heading">Service Packages</h2>
+        <p style="color:var(--gray-600);max-width:520px;margin:.75rem auto 0;font-size:1rem;">All packages include access to our HCD Toolkit — templates, workshop guides, and research scripts.</p>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="packages-table" aria-label="HCD service packages">
+          <thead>
+            <tr>
+              <th>Package</th>
+              <th>Best For</th>
+              <th>Duration</th>
+              <th>Key Outputs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="pkg-name">HCD Discovery</span></td>
+              <td>Validating ideas, understanding users</td>
+              <td>4–6 weeks</td>
+              <td>Personas, journey maps, strategic insights</td>
+            </tr>
+            <tr>
+              <td><span class="pkg-name">HCD Build</span></td>
+              <td>Designing &amp; testing solutions</td>
+              <td>6–8 weeks</td>
+              <td>Prototypes, usability results, MVP-ready flows</td>
+            </tr>
+            <tr>
+              <td><span class="pkg-name">HCD Transform</span></td>
+              <td>Embedding HCD in your team culture</td>
+              <td>3–6 months</td>
+              <td>Trained teams, scalable process, continuous feedback loops</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DESIGN PRINCIPLES ===================== -->
+  <section class="section section-light" aria-labelledby="principles-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">How We Think</span>
+        <h2 id="principles-heading">Our Design Principles</h2>
+        <p style="color:var(--gray-600);max-width:520px;margin:.75rem auto 0;font-size:1rem;">These guide every project we take on.</p>
+      </div>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h3>Start with Empathy</h3>
+          <p>Listen deeply. Observe without judgment. Understanding people is the foundation of everything we do.</p>
+        </div>
+        <div class="principle-card">
+          <h3>Include the Marginalized</h3>
+          <p>Design for the edges, and the centre will follow. The hardest users to reach are the most important.</p>
+        </div>
+        <div class="principle-card">
+          <h3>Fail Fast, Learn Faster</h3>
+          <p>Prototypes are meant to be wrong — so we can get it right. Speed of learning beats perfection.</p>
+        </div>
+        <div class="principle-card">
+          <h3>Co-Create, Don't Dictate</h3>
+          <p>The best ideas come from users, not boardrooms. We facilitate; communities lead.</p>
+        </div>
+        <div class="principle-card">
+          <h3>Tech with Purpose</h3>
+          <p>Innovation should serve people, not just impress investors. We measure success in human outcomes.</p>
+        </div>
+        <div class="principle-card">
+          <h3>Context is Everything</h3>
+          <p>Solutions built for Silicon Valley rarely work in Nairobi or Kigali. We design for where users actually are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== IMPACT METRICS ===================== -->
+  <section class="section section-cream" aria-labelledby="metrics-heading">
+    <div class="container" style="max-width:720px;">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Measuring Success</span>
+        <h2 id="metrics-heading">How We Measure HCD Impact</h2>
+        <p style="color:var(--gray-600);max-width:480px;margin:.75rem auto 0;font-size:1rem;">We track both human and business outcomes. We help you define baseline metrics before we begin.</p>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="metrics-table" aria-label="HCD impact metrics">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>How We Measure It</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>User Satisfaction</td><td>NPS, CSAT surveys</td></tr>
+            <tr><td>Task Success Rate</td><td>Usability testing</td></tr>
+            <tr><td>Time-on-Task</td><td>Session recordings</td></tr>
+            <tr><td>Adoption Rate</td><td>Analytics (DAU/MAU)</td></tr>
+            <tr><td>Reduction in Support Tickets</td><td>CRM data</td></tr>
+            <tr><td>Stakeholder Buy-In</td><td>Workshop feedback</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section section-light" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Real Impact</span>
+        <h2 id="testimonials-heading">Real Voices</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <blockquote>
+            "Wakara's HCD process helped us redesign our farmer app based on actual field feedback — not assumptions. Adoption doubled in 3 months."
+          </blockquote>
+          <cite>AgriTech Product Manager, East Africa</cite>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>
+            "Their co-creation workshops brought our team together in ways we'd never experienced. Now HCD is part of how we innovate."
+          </blockquote>
+          <cite>Innovation Lead, Regional Bank</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW TO WORK WITH US ===================== -->
+  <section class="section section-cream" aria-labelledby="process-heading">
+    <div class="container" style="max-width:720px;">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <span class="section-label">Getting Started</span>
+        <h2 id="process-heading">How to Work With Us</h2>
+      </div>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Book a Free HCD Consultation</h4>
+            <p>We'll discuss your challenge, goals, and fit for HCD — no commitment required.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Choose Your Package</h4>
+            <p>Pick from Discovery, Build, or Transform — or we'll customise a scope that fits.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Kickoff &amp; Collaborate</h4>
+            <p>We onboard your team and start listening to users. You're involved throughout.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div>
+            <h4>Receive Insights &amp; Assets</h4>
+            <p>Get research reports, prototypes, and a clear path forward — not just a slide deck.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div>
+            <h4>Scale with Confidence</h4>
+            <p>Launch knowing your product was built with people, not just for them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GLOSSARY ===================== -->
+  <section class="section section-light" aria-labelledby="glossary-heading">
+    <div class="container" style="max-width:720px;">
+      <div class="text-center" style="margin-bottom:2.5rem;">
+        <span class="section-label">Reference</span>
+        <h2 id="glossary-heading">HCD Glossary</h2>
+      </div>
+      <div class="glossary-list">
+        <div class="glossary-item">
+          <span class="glossary-term">Empathy Map</span>
+          <span class="glossary-def">A visual tool to capture what users say, think, do, and feel — exposing hidden needs and motivations.</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Journey Map</span>
+          <span class="glossary-def">A timeline of a user's experience with a product or service, highlighting pain points and moments of delight.</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Persona</span>
+          <span class="glossary-def">A fictional but data-driven representation of a key user type, grounded in real research.</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Usability Testing</span>
+          <span class="glossary-def">Observing real users interact with a prototype to identify where they succeed, struggle, or drop off.</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Rapid Prototyping</span>
+          <span class="glossary-def">Creating quick, low-cost models to test ideas before investing in full development.</span>
+        </div>
+        <div class="glossary-item">
+          <span class="glossary-term">Jobs to be Done</span>
+          <span class="glossary-def">A framework for understanding what users are really trying to accomplish — beyond surface-level feature requests.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container text-center">
+      <h2>Ready to design with your users?</h2>
+      <p>Book a free 30-minute HCD consultation. Let's talk about your challenge and how human-centred design can help.</p>
+      <a href="https://calendar.app.google/kDBzfZApc8v6rd1K8" target="_blank" rel="noopener" class="btn btn-white">Book a Free Consult &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/wakara_logo_dark_bg.svg" alt="Wakara Technologies" class="footer-logo-img" />
+          <p class="footer-tagline">Human-Centred Design &amp; Learning Engineering as a Service. We partner with EdTech leaders, public institutions, and innovation teams to design, build, and scale solutions that work.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">LEaaS Services</a></li>
+            <li><a href="hcd.html">HCD Studio</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="prototypes.html">Prototypes</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>HCD Services</h4>
+          <ul>
+            <li><a href="hcd.html">HCD Discovery</a></li>
+            <li><a href="hcd.html">HCD Build</a></li>
+            <li><a href="hcd.html">HCD Transform</a></li>
+            <li><a href="services.html">LEaaS Practice</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Wakara Technologies. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="admin.html" style="opacity:.3;font-size:.72rem;">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>
