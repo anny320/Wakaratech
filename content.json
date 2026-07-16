@@ -2,6 +2,26 @@
   "case_studies": [],
   "insights": [
     {
+      "id": "tedx-kids-hacker-camps",
+      "category": "Future of Play",
+      "emoji": "🎤",
+      "title": "TEDx: Kids Hacker Camps — teaching children to make, not just consume",
+      "excerpt": "A TEDx talk on what happens when you put Arduino, Raspberry Pi, and a growth mindset in the hands of Kenyan children. Co-presented with Wachira Ndaiga, drawing on the research behind Waza Experience and the Kids Hacker Camps programme.",
+      "date": "2015-01-01",
+      "url": "https://www.youtube.com/watch?v=613OPbNZenQ",
+      "url_label": "Watch on YouTube"
+    },
+    {
+      "id": "iamscience-goethe-arduino",
+      "category": "EdTech",
+      "emoji": "👩‍💻",
+      "title": "iamscience: Teaching high school girls to tinker with Arduino",
+      "excerpt": "A coding week programme with the Goethe Institute introducing high school girls in Kenya to tinkering, hardware, and programming through Arduino. Part of a broader effort to close the gender gap in STEM through hands-on, maker-first learning.",
+      "date": "2016-01-01",
+      "url": "https://www.youtube.com/watch?v=x1vlQ3uTspY",
+      "url_label": "Watch on YouTube"
+    },
+    {
       "id": "website-hacked-security",
       "category": "Strategy",
       "emoji": "🔐",
