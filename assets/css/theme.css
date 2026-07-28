@@ -281,7 +281,7 @@ p { margin-bottom: 1rem; }
 
 .nav-dropdown a {
   display: block;
-  padding: .5rem 1.1rem;
+  padding: .6rem 1.1rem;
   font-size: .82rem;
   font-weight: 500;
   color: rgba(255,255,255,.75);
@@ -1002,13 +1002,15 @@ p { margin-bottom: 1rem; }
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
   padding: .75rem 1rem;
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
-  font-size: .95rem;
+  /* 16px min prevents mobile Safari from auto-zooming on focus */
+  font-size: 16px;
   color: var(--gray-800);
   background: var(--cream);
   transition: var(--transition);
@@ -1308,7 +1310,6 @@ p { margin-bottom: 1rem; }
   .footer-brand   { grid-column: auto; }
 
   .nav-links { display: none; }
-  .nav-cta   { display: none; }
   .hamburger { display: flex; }
   .mobile-nav { display: block; }
 
@@ -1319,6 +1320,12 @@ p { margin-bottom: 1rem; }
 
   .section  { padding: 3.5rem 0; }
   .cta-banner { padding: 3.5rem 0; }
+
+  /* ---- Larger, better-spaced tap targets on mobile ---- */
+  .footer-col ul li { margin-bottom: .15rem; }
+  .footer-col ul li a { display: inline-block; padding: .55rem 0; }
+  .footer-legal { gap: 1.25rem; flex-wrap: wrap; }
+  .footer-legal a { padding: .45rem 0; display: inline-block; }
 
   /* ---- Mobile typography: scale text down so pages don't
          read as a wall of oversized copy on small screens ---- */
@@ -1344,9 +1351,22 @@ p { margin-bottom: 1rem; }
 /* Show hamburger at 768 too for nav-heavy screens */
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-cta   { display: none; }
   .hamburger { display: flex; }
   .mobile-nav { display: block; }
+
+  /* Keep the primary CTA visible in the bar (compact) instead of
+     burying the main conversion action inside the hamburger menu. */
+  .nav-cta { display: flex; margin-right: .25rem; }
+  .nav-cta .btn { padding: .5rem 1rem; font-size: .85rem; }
+  /* CTA already lives in the bar now — drop the duplicate in the menu. */
+  .mobile-nav .mobile-cta { display: none; }
+}
+
+/* Very small phones — shrink logo/CTA/padding so the bar never overflows */
+@media (max-width: 400px) {
+  .container { padding: 0 1rem; }
+  .nav-logo-img { height: 30px; }
+  .nav-cta .btn { padding: .45rem .8rem; font-size: .8rem; }
 }
 
 /* ===================== ACCESSIBILITY ===================== */
