@@ -1319,6 +1319,26 @@ p { margin-bottom: 1rem; }
 
   .section  { padding: 3.5rem 0; }
   .cta-banner { padding: 3.5rem 0; }
+
+  /* ---- Mobile typography: scale text down so pages don't
+         read as a wall of oversized copy on small screens ---- */
+  html { font-size: 15px; }
+
+  h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  h2 { font-size: clamp(1.5rem, 6vw, 1.9rem); }
+
+  .hero-title { margin-bottom: 1rem; }
+
+  .hero-subtitle,
+  .section-subtitle,
+  .page-hero .hero-sub {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .section-subtitle { margin-bottom: 2rem; }
+
+  .page-hero { padding: 6.5rem 0 3rem; }
 }
 
 /* Show hamburger at 768 too for nav-heavy screens */
