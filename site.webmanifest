@@ -1,0 +1,29 @@
+{
+  "name": "Wakara Technologies",
+  "short_name": "Wakara",
+  "description": "Human-Centred Design & Learning Engineering as a Service.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f1e3d",
+  "theme_color": "#0f1e3d",
+  "icons": [
+    {
+      "src": "/assets/images/wakara_favicon_192px.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/wakara_favicon_512px.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/wakara_favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
