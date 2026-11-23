@@ -170,6 +170,54 @@
         "Compliance"
       ],
       "url": "https://anny320.github.io/Safe-DPI-Lab/"
+    },
+    {
+      "id": "love-math",
+      "name": "Love Math",
+      "status": "live",
+      "description": "A playful romance calculator that uses real math — the Drake equation, the 37% rule, and relationship science — to estimate how many potential partners are out there, when to stop searching, and who might be The One.",
+      "tags": [
+        "Math",
+        "Relationships",
+        "Playful"
+      ],
+      "url": "https://anny320.github.io/LoveMath/"
+    },
+    {
+      "id": "giftcot",
+      "name": "GIFTCOT",
+      "status": "live",
+      "description": "A private gifting concierge for Nairobi and the diaspora — curated selections sourced from trusted local makers and delivered with care. Membership is by request.",
+      "tags": [
+        "Gifting",
+        "Concierge",
+        "Local Makers"
+      ],
+      "url": "https://anny320.github.io/giftcot/"
+    },
+    {
+      "id": "shamba-score",
+      "name": "Shamba Score",
+      "status": "concept",
+      "description": "An AI credit and insurance scoring engine for smallholder farmers — turning alternative data like satellite imagery, weather, and mobile-money patterns into a risk score, recommended loan terms, and a plain-language explanation. Built B2B for lenders, SACCOs, and insurers. Kenya first.",
+      "tags": [
+        "AgriTech",
+        "AI",
+        "FinTech"
+      ],
+      "url": "https://anny320.github.io/Shambas/"
+    },
+    {
+      "id": "creatorpay-ai",
+      "name": "CreatorPay AI",
+      "status": "concept",
+      "description": "A browser copilot that scans your checkout and surfaces exactly where you're leaking revenue — and what to fix first. Designed to help creators and small merchants recover lost sales.",
+      "tags": [
+        "AI",
+        "E-Commerce",
+        "Conversion"
+      ],
+      "url": "https://anny320.github.io/creatorpay-ai-site/"
     }
   ]
 }
